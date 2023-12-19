@@ -3,7 +3,7 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     colors: {
-      white: "#FFFFF",
+      white: "#FFFFFF",
       black: "#000000",
       "light-bg": "#F4F7FD",
       "dark-bg": "#20212C",
@@ -17,11 +17,11 @@ module.exports = {
       "medium-gray": "#828FA3",
     },
     fontSize: {
-      xs: "0.75rem", //12px
+      xs: "0.75rem", //12px heading(s)
       sm: "0.8125", //13px
-      base: "0.937rem", //15px
-      lg: "1.125rem", //18px
-      xl: "1.5rem", //24px
+      base: "0.937rem", //15px heading(m)
+      lg: "1.125rem", //18px heading (l)
+      xl: "1.5rem", //24px  heading(xl)
     },
     extend: {
       lineHeight: {

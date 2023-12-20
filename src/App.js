@@ -1,5 +1,4 @@
 import Body from "./components/Body";
-import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 function App() {
@@ -14,9 +13,6 @@ function App() {
       <body>
         <Body />
       </body>
-      {/* <footer>
-        <Footer />
-      </footer> */}
     </div>
   );
 }

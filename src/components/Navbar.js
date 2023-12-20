@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "../assets/logo-dark.svg";
 import { useSelector } from "react-redux";
 import iconBoard from "../assets/icon-board.svg";
+import NavFooter from "./NavFooter";
 
 const Navbar = () => {
   const selector = useSelector((state) => state.board.allBoards);
@@ -28,7 +29,9 @@ const Navbar = () => {
             <h4 className="text-base px-3">+ Create New Board</h4>
           </div>
         </div>
-        <div></div>
+        <div>
+          <NavFooter />
+        </div>
       </div>
     </nav>
   );

@@ -1,19 +1,22 @@
+import Body from "./components/Body";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 function App() {
   return (
-    <div>
+    <div className="bg-light-bg">
       <header>
         <Header />
       </header>
-      <nav className="min-h-[1024px] bg-yellow-300 w-[300px]">
+      <nav>
         <Navbar />
       </nav>
-      <body></body>
-      <footer>
+      <body>
+        <Body />
+      </body>
+      {/* <footer>
         <Footer />
-      </footer>
+      </footer> */}
     </div>
   );
 }

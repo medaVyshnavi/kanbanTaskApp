@@ -30,6 +30,9 @@ module.exports = {
         "leading-5": "1.437rem", // 19px
         "leading-6": "1.875rem", // 30px
       },
+      width: {
+        inherit: "inherit",
+      },
     },
   },
   plugins: [],

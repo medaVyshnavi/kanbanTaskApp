@@ -1,15 +1,14 @@
 import React from "react";
 import ellipsis from "../assets/icon-vertical-ellipsis.svg";
+import Button from "./Button";
 
 const Header = () => {
   return (
-    <div className="flex justify-around items-center mt-4">
+    <div className="flex justify-between items-center bg-white pl-80 h-24 border-lines-light border-b-[1px]">
       <h1 className="text-xl text-black">Platform Launch</h1>
-      <div className="flex justify-between items-center">
-        <button className="bg-purple text-white rounded-3xl text-base px-4 py-3">
-          + Add Task Button
-        </button>
-        <img src={ellipsis} alt="ellipse" className="ml-10" />
+      <div className="flex justify-between items-center pr-10">
+        <Button text="+ Add Task Button" />
+        <img src={ellipsis} alt="ellipse" className="ml-6" />
       </div>
     </div>
   );

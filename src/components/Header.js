@@ -7,8 +7,8 @@ const Header = () => {
   const darkMode = useSelector((state) => state.app.darkMode);
   return (
     <div
-      className={`flex justify-between items-center ${
-        darkMode ? "dark-gray" : "bg-white"
+      className={`flex justify-between items-center bg-${
+        darkMode ? "dark-gray" : "white"
       } pl-80 h-24 border-lines-${darkMode ? "dark" : "light"} border-b-[1px]`}
     >
       <h1 className={`text-xl text-${darkMode ? "white" : "black"}`}>

@@ -1,5 +1,6 @@
 import React from "react";
-import Logo from "../assets/logo-dark.svg";
+import darkLogo from "../assets/logo-dark.svg";
+import lightLogo from "../assets/logo-light.svg";
 import { useSelector } from "react-redux";
 import iconBoard from "../assets/icon-board.svg";
 import NavFooter from "./NavFooter";
@@ -13,11 +14,11 @@ const Navbar = () => {
       className={`bg-${
         darkMode ? "dark-gray" : "white"
       } h-screen w-[300px] absolute top-0 pt-8 pl-[34px] border-r-[1px] border-lines-${
-        darkMode ? "dark-gray" : "light"
+        darkMode ? "dark" : "light"
       }`}
     >
       <div>
-        <img src={Logo} alt="logo" />
+        <img src={darkMode ? lightLogo : darkLogo} alt="logo" />
         <h3 className="text-xs text-medium-gray pt-14 pb-2">
           ALL BOARDS ({board.length})
         </h3>

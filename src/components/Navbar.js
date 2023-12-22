@@ -6,9 +6,16 @@ import NavFooter from "./NavFooter";
 
 const Navbar = () => {
   const selector = useSelector((state) => state.board.allBoards);
+  const darkMode = useSelector((state) => state.app.darkMode);
   const board = selector.boards;
   return (
-    <nav className="bg-white h-screen w-[300px] absolute top-0 pt-8 pl-[34px] border-r-[1px] border-lines-light">
+    <nav
+      className={`bg-${
+        darkMode ? "dark-gray" : "white"
+      } h-screen w-[300px] absolute top-0 pt-8 pl-[34px] border-r-[1px] border-lines-${
+        darkMode ? "dark-gray" : "light"
+      }`}
+    >
       <div>
         <img src={Logo} alt="logo" />
         <h3 className="text-xs text-medium-gray pt-14 pb-2">

@@ -1,23 +1,23 @@
 import React from "react";
 import lightTheme from "../assets/icon-light-theme.svg";
 import darkTheme from "../assets/icon-dark-theme.svg";
-import hidesidebar from "../assets/icon-hide-sidebar.svg";
-import showsidebar from "../assets/icon-show-sidebar.svg";
+import hideSideBarIcon from "../assets/icon-hide-sidebar.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { changeTheme } from "../utils/appSlice";
+import { changeTheme, handleSideBar } from "../utils/appSlice";
 
 const Footer = () => {
   const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.app.darkMode);
+  const sideBar = useSelector((state) => state.app.sideBar);
   return (
     <div>
       <div
         className={`bg-${
           darkMode ? "dark" : "light"
-        }-bg flex rounded-md items-center justify-center mr-6 py-3 px-2 mt-96`}
+        }-bg flex rounded-md items-center justify-center mr-6 py-3 px-2 mt-[18rem]`}
       >
         <img src={lightTheme} alt="light theme" className="w-5 h-5" />
-        <div className="px-6">
+        <div className="px-6 cursor-pointer">
           <label className="relative inline-flex items-center cursor-pointer">
             <input
               type="checkbox"
@@ -32,8 +32,15 @@ const Footer = () => {
 
         <img src={darkTheme} alt="dark theme" className="w-4 h-4" />
       </div>
-      <div className="flex justify-start items-center mt-7">
-        <img src={hidesidebar} alt="side bar" className="h-4 w-6 pr-3" />
+      <div
+        className="flex justify-start items-center mt-5 cursor-pointer"
+        onClick={() => dispatch(handleSideBar())}
+      >
+        <img
+          src={sideBar && hideSideBarIcon}
+          alt="side bar"
+          className="h-4 w-6 pr-3"
+        />
         <span className="text-base text-medium-gray">Hide Sidebar</span>
       </div>
     </div>

@@ -9,7 +9,14 @@ const Header = () => {
   const darkMode = useSelector((state) => state.app.darkMode);
   const sideBar = useSelector((state) => state.app.sideBar);
   return (
-    <div className="flex justify-start items-center">
+    <div
+      className={`bg-${darkMode ? "dark-gray" : "white"} ${
+        !sideBar &&
+        `flex justify-start items-center border-b-[1px] border-lines-${
+          darkMode ? "dark" : "light"
+        }`
+      } `}
+    >
       {!sideBar && (
         <img
           src={darkMode ? lightLogo : darkLogo}
@@ -20,12 +27,12 @@ const Header = () => {
       <div
         className={`flex justify-between items-center bg-${
           darkMode ? "dark-gray" : "white"
-        } ${sideBar ? "pl-80 " : "pl-10"} h-24 border-lines-${
-          darkMode ? "dark" : "light"
-        } border-b-[1px]`}
+        } ${
+          sideBar ? "pl-80 border-b-[1px]" : "ml-12 flex-1 border-l-[1px]"
+        } h-24 border-lines-${darkMode ? "dark" : "light"} `}
       >
         {" "}
-        <h1 className={`text-xl text-${darkMode ? "white" : "black"}`}>
+        <h1 className={`text-xl text-${darkMode ? "white" : "black"} pl-10`}>
           Platform Launch
         </h1>
         <div className="flex justify-between items-center pr-10">

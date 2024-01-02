@@ -3,7 +3,7 @@ import lightTheme from "../assets/icon-light-theme.svg";
 import darkTheme from "../assets/icon-dark-theme.svg";
 import hideSideBarIcon from "../assets/icon-hide-sidebar.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { changeTheme, handleSideBar } from "../utils/appSlice";
+import { changeTheme, handleSideBar } from "../utils/store/appSlice";
 
 const Footer = () => {
   const dispatch = useDispatch();

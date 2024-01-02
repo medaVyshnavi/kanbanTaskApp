@@ -7,7 +7,7 @@ const TaskCard = ({ task: { title, subtasks } }) => {
     <div
       className={`bg-${
         darkMode ? "dark-gray" : "white"
-      } m-3 px-5 py-6 rounded-lg shadow-md`}
+      } m-3 px-5 py-6 rounded-lg shadow-md w-72`}
     >
       <h3 className={`text-base ${darkMode ? "text-white" : "text-black"}`}>
         {title}

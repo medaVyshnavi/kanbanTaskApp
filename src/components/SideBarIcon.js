@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import showSideBarIcon from "../assets/icon-show-sidebar.svg";
-import { handleSideBar } from "../utils/appSlice";
+import { handleSideBar } from "../utils/store/appSlice";
 
 const SideBarIcon = () => {
   const dispatch = useDispatch();

@@ -15,6 +15,9 @@ module.exports = {
       "lines-dark": "#3E3F4E",
       "lines-light": "#E4EBFA",
       "medium-gray": "#828FA3",
+      bubbleOne: "#49C4E5",
+      bubbleTwo: "#8471F2",
+      bubbleThree: "#67E2AE",
     },
     fontSize: {
       xs: "0.75rem", //12px heading(s)

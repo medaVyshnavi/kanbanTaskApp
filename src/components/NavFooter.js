@@ -14,7 +14,7 @@ const Footer = () => {
       <div
         className={`bg-${
           darkMode ? "dark" : "light"
-        }-bg flex rounded-md items-center justify-center mr-6 py-3 px-2 mt-[18rem]`}
+        } flex rounded-md items-center justify-center mr-6 py-3 px-2 mt-[18rem]`}
       >
         <img src={lightTheme} alt="light theme" className="w-5 h-5" />
         <div className="px-6 cursor-pointer">

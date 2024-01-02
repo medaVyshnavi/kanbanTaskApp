@@ -5,8 +5,8 @@ module.exports = {
     colors: {
       white: "#FFFFFF",
       black: "#000000",
-      "light-bg": "#F4F7FD",
-      "dark-bg": "#20212C",
+      light: "#F4F7FD",
+      dark: "#20212C",
       purple: "#635FC7",
       "purple-hover": "#A8A4FF",
       red: "#EA5555",

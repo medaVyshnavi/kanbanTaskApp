@@ -10,11 +10,11 @@ const Footer = () => {
   const darkMode = useSelector((state) => state.app.darkMode);
   const sideBar = useSelector((state) => state.app.sideBar);
   return (
-    <div>
+    <div className="fixed bottom-14">
       <div
         className={`bg-${
           darkMode ? "dark" : "light"
-        } flex rounded-md items-center justify-center mr-6 py-3 px-2 mt-[18rem]`}
+        } flex rounded-md items-center justify-center mr-6 py-3 px-2`}
       >
         <img src={lightTheme} alt="light theme" className="w-5 h-5" />
         <div className="px-6 cursor-pointer">
@@ -41,7 +41,7 @@ const Footer = () => {
           alt="side bar"
           className="h-4 w-6 pr-3"
         />
-        <span className="text-base text-medium-gray">Hide Sidebar</span>
+        <span className="text-base text-mediumGray">Hide Sidebar</span>
       </div>
     </div>
   );

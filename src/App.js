@@ -1,10 +1,8 @@
 import Body from "./components/Body";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
-import { useSelector } from "react-redux";
 
 function App() {
-  const darkMode = useSelector((state) => state.app.darkMode);
   return (
     <>
       <div>

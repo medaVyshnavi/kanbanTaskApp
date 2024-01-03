@@ -16,7 +16,7 @@ const EmptyBoard = () => {
           sideBar ? "pl-72" : "pl-0"
         }`}
       >
-        <h1 className="text-lg text-medium-gray pl-5">
+        <h1 className="text-lg text-mediumGray pl-5">
           This board is empty. Create a new column to get started.
         </h1>
         <Button text="+ Add New Column" />

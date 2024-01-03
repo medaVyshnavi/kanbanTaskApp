@@ -12,8 +12,8 @@ const Header = () => {
     <div
       className={`bg-${darkMode ? "dark-gray" : "white"} ${
         !sideBar &&
-        `flex justify-start items-center border-b-[1px] border-lines-${
-          darkMode ? "dark" : "light"
+        `flex justify-start items-center border-b-[1px] border-${
+          darkMode ? "linesDark" : "linesLight"
         }`
       } `}
     >
@@ -29,7 +29,7 @@ const Header = () => {
           darkMode ? "dark-gray" : "white"
         } ${
           sideBar ? "pl-80 border-b-[1px]" : "ml-12 flex-1 border-l-[1px]"
-        } h-24 border-lines-${darkMode ? "dark" : "light"} `}
+        } h-24 border-${darkMode ? "linesDark" : "linesLight"} `}
       >
         {" "}
         <h1 className={`text-xl text-${darkMode ? "white" : "black"} pl-10`}>

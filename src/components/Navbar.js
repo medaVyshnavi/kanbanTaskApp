@@ -15,20 +15,21 @@ const Navbar = () => {
         <nav
           className={`bg-${
             darkMode ? "dark-gray" : "white"
-          } h-screen w-[300px] absolute top-0 pt-8 pl-[34px] border-r-[1px] border-lines-${
-            darkMode ? "dark" : "light"
-          }`}
+          } h-screen w-[300px] absolute top-0 pt-8 pl-[34px] border-r-[1px] border-${
+            darkMode ? "linesDark" : "linesLight"
+          }
+          `}
         >
           <div>
             <img src={darkMode ? lightLogo : darkLogo} alt="logo" />
-            <h3 className="text-xs text-medium-gray pt-14 pb-2">
+            <h3 className="text-xs text-mediumGray pt-14 pb-2">
               ALL BOARDS ({selector.length})
             </h3>
             <div>
               {selector.map((item, index) => (
                 <div
                   key={index}
-                  className="flex text-medium-gray my-2 items-center h-12"
+                  className="flex text-mediumGray my-2 items-center h-12"
                 >
                   <img src={iconBoard} alt="board-icon" className="w-4 h-4" />
                   <h4 className="text-base px-3">{item.name}</h4>

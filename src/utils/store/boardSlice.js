@@ -5,13 +5,14 @@ const boardSlice = createSlice({
   name: "Board",
   initialState: {
     allBoards: data,
+    selectedBoard: 1,
   },
   reducers: {
-    // getBoardData: (state, action) => {
-    //   state.allBoards = action.payload;
-    // },
+    setBoard: (state, action) => {
+      state.selectedBoard = action.payload;
+    },
   },
 });
 
 export default boardSlice.reducer;
-export const { getBoardData } = boardSlice.actions;
+export const { setBoard } = boardSlice.actions;

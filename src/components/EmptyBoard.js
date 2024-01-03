@@ -22,7 +22,7 @@ const EmptyBoard = () => {
         <Button text="+ Add New Column" />
       </div>
       {!sideBar && (
-        <div className="relative">
+        <div>
           <SideBarIcon />
         </div>
       )}

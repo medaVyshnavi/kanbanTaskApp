@@ -15,7 +15,7 @@ const Board = () => {
       <div
         className={`bg-${
           darkMode ? "dark" : "light"
-        } h-[88vh] flex justify-start  ${sideBar ? "pl-72" : "pl-0 "}`}
+        } h-[88vh] flex justify-start  ${sideBar ? "pl-[19rem]" : "pl-0 "}`}
       >
         {selectedBoard.map((board, index) => (
           <Column data={board} key={index} />
@@ -23,7 +23,7 @@ const Board = () => {
         <NewColumn />
       </div>
       {!sideBar && (
-        <div className="relative">
+        <div>
           <SideBarIcon />
         </div>
       )}

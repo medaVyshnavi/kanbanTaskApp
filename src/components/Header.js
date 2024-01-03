@@ -32,7 +32,7 @@ const Header = () => {
         } h-24 border-${darkMode ? "linesDark" : "linesLight"} `}
       >
         {" "}
-        <h1 className={`text-xl text-${darkMode ? "white" : "black"} pl-10`}>
+        <h1 className={`text-xl text-${darkMode ? "white" : "black"} pl-4`}>
           Platform Launch
         </h1>
         <div className="flex justify-between items-center pr-10">

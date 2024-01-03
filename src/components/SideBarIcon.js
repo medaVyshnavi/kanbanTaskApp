@@ -7,10 +7,14 @@ const SideBarIcon = () => {
   const dispatch = useDispatch();
   return (
     <div
-      className="bg-purple rounded-r-full px-5 py-4 absolute -top-20 flex justify-center items-center cursor-pointer"
+      className="bg-purple rounded-r-full px-5 py-4 fixed bottom-14 flex justify-center items-center cursor-pointer"
       onClick={() => dispatch(handleSideBar())}
     >
-      <img src={showSideBarIcon} alt="show" className="w-4 h-3" />
+      <img
+        src={showSideBarIcon}
+        alt="show"
+        className="w-4 h-3 fixed bottom-16"
+      />
     </div>
   );
 };

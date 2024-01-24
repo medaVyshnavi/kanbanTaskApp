@@ -20,8 +20,8 @@ module.exports = {
       bubbleThree: "#67E2AE",
     },
     fontSize: {
-      xs: "0.75rem", //12px heading(s)
-      sm: "0.8125", //13px
+      xs: "0.75rem", //12px heading(s) body(m)
+      sm: "0.8125", //13px body (l)
       base: "0.937rem", //15px heading(m)
       lg: "1.125rem", //18px heading (l)
       xl: "1.5rem", //24px  heading(xl)

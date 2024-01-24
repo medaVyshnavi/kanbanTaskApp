@@ -11,7 +11,7 @@ const Column = ({ data }) => {
       </div>
       <div>
         {data.tasks?.map((task, index) => (
-          <TaskCard task={task} key={index} />
+          <TaskCard task={task} key={index} status={data.name} />
         ))}
       </div>
     </div>

@@ -34,8 +34,9 @@ const Navbar = () => {
             </div>
 
             <div>
-              {boardData.map((item) => (
+              {boardData.map((item, index) => (
                 <div
+                  key={index}
                   className={`${
                     selectedBoard == item.id
                       ? "bg-purple my-2 mr-6 rounded-r-3xl text-white"

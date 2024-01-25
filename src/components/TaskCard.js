@@ -1,15 +1,22 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import Popup from "./Popup";
+import Modal from "./Modal";
+import ViewTaskModal from "./ViewTaskModal";
 
-const TaskCard = ({ task: { title, subtasks } }, status) => {
+const TaskCard = ({ task, status }) => {
   const darkMode = useSelector((state) => state.app.darkMode);
   const [isOpen, setIsOpen] = useState(false);
+  const { title, subtasks } = task;
 
   const handleOpenModal = () => {
     setIsOpen(true);
   };
+
+  const handleCloseModal = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
       <div
@@ -23,9 +30,32 @@ const TaskCard = ({ task: { title, subtasks } }, status) => {
         </h3>
         <p className="text-xs text-mediumGray pt-2">{`0 of ${subtasks?.length} subtasks`}</p>
       </div>
-      <Popup isOpen={isOpen} setIsOpen={setIsOpen} />
+      <Modal open={isOpen}>
+        <ViewTaskModal task={task} status={status} />
+        <p onClick={handleCloseModal}>X</p>
+      </Modal>
     </>
   );
 };
 
 export default TaskCard;
+
+// {
+//   "title": "Design onboarding flow",
+//   "description": "",
+//   "status": "Doing",
+//   "subtasks": [
+//       {
+//           "title": "Sign up page",
+//           "isCompleted": true
+//       },
+//       {
+//           "title": "Sign in page",
+//           "isCompleted": false
+//       },
+//       {
+//           "title": "Welcome page",
+//           "isCompleted": false
+//       }
+//   ]
+// }

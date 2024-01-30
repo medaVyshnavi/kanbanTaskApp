@@ -11,7 +11,7 @@ module.exports = {
       "purple-hover": "#A8A4FF",
       red: "#EA5555",
       "red-hover": "#FF9898",
-      "dark-gray": "#2B2C37",
+      darkGray: "#2B2C37",
       linesDark: "#3E3F4E",
       linesLight: "#E4EBFA",
       mediumGray: "#828FA3",
@@ -21,7 +21,7 @@ module.exports = {
     },
     fontSize: {
       xs: "0.75rem", //12px heading(s) body(m)
-      sm: "0.8125", //13px body (l)
+      sm: "0.8125rem", //13px body (l)
       base: "0.937rem", //15px heading(m)
       lg: "1.125rem", //18px heading (l)
       xl: "1.5rem", //24px  heading(xl)

@@ -21,7 +21,7 @@ const TaskCard = ({ task, status }) => {
     <>
       <div
         className={`bg-${
-          darkMode ? "dark-gray" : "white"
+          darkMode ? "darkGray" : "white"
         } m-3 px-4 py-5 rounded-lg shadow-md w-72`}
         onClick={handleOpenModal}
       >
@@ -30,32 +30,11 @@ const TaskCard = ({ task, status }) => {
         </h3>
         <p className="text-xs text-mediumGray pt-2">{`0 of ${subtasks?.length} subtasks`}</p>
       </div>
-      <Modal open={isOpen}>
+      <Modal open={isOpen} close={handleCloseModal}>
         <ViewTaskModal task={task} status={status} />
-        <p onClick={handleCloseModal}>X</p>
       </Modal>
     </>
   );
 };
 
 export default TaskCard;
-
-// {
-//   "title": "Design onboarding flow",
-//   "description": "",
-//   "status": "Doing",
-//   "subtasks": [
-//       {
-//           "title": "Sign up page",
-//           "isCompleted": true
-//       },
-//       {
-//           "title": "Sign in page",
-//           "isCompleted": false
-//       },
-//       {
-//           "title": "Welcome page",
-//           "isCompleted": false
-//       }
-//   ]
-// }

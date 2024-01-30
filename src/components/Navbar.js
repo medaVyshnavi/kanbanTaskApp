@@ -1,25 +1,32 @@
 import React from "react";
 import darkLogo from "../assets/logo-dark.svg";
 import lightLogo from "../assets/logo-light.svg";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import iconBoard from "../assets/icon-board.svg";
 import iconBoardFilled from "../assets/filled/icon-board.svg";
 import iconBoardWhite from "../assets/filled/icon-board-white.svg";
 import NavFooter from "./NavFooter";
+import { setBoard } from "../utils/store/boardSlice";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
   const board = useSelector((state) => state.board);
   const darkMode = useSelector((state) => state.app.darkMode);
   const sideBar = useSelector((state) => state.app.sideBar);
 
   const boardData = board.allBoards.boards;
   const selectedBoard = board.selectedBoard;
+
+  const handleSelectBoard = (id) => {
+    dispatch(setBoard(id));
+  };
+
   return (
     <>
       {sideBar ? (
         <nav
           className={`bg-${
-            darkMode ? "dark-gray" : "white"
+            darkMode ? "darkGray" : "white"
           } h-screen w-[300px] absolute top-0 pt-8 border-r-[1px] border-${
             darkMode ? "linesDark" : "linesLight"
           }
@@ -42,6 +49,7 @@ const Navbar = () => {
                       ? "bg-purple my-2 mr-6 rounded-r-3xl text-white"
                       : "text-mediumGray"
                   }`}
+                  onClick={() => handleSelectBoard(item.id)}
                 >
                   <div
                     key={item.index}

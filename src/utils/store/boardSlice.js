@@ -5,7 +5,7 @@ const boardSlice = createSlice({
   name: "Board",
   initialState: {
     allBoards: data,
-    selectedBoard: 1,
+    selectedBoard: 0,
   },
   reducers: {
     setBoard: (state, action) => {

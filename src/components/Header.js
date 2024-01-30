@@ -4,13 +4,15 @@ import Button from "./Button";
 import { useSelector } from "react-redux";
 import darkLogo from "../assets/logo-dark.svg";
 import lightLogo from "../assets/logo-light.svg";
+import Modal from "./Modal";
+import AddNewTask from "./AddNewTask";
 
 const Header = () => {
   const darkMode = useSelector((state) => state.app.darkMode);
   const sideBar = useSelector((state) => state.app.sideBar);
   return (
     <div
-      className={`bg-${darkMode ? "dark-gray" : "white"} ${
+      className={`bg-${darkMode ? "darkGray" : "white"} ${
         !sideBar &&
         `flex justify-start items-center border-b-[1px] border-${
           darkMode ? "linesDark" : "linesLight"
@@ -26,7 +28,7 @@ const Header = () => {
       )}
       <div
         className={`flex justify-between items-center bg-${
-          darkMode ? "dark-gray" : "white"
+          darkMode ? "darkGray" : "white"
         } ${
           sideBar ? "pl-80 border-b-[1px]" : "ml-12 flex-1 border-l-[1px]"
         } h-24 border-${darkMode ? "linesDark" : "linesLight"} `}
@@ -36,10 +38,13 @@ const Header = () => {
           Platform Launch
         </h1>
         <div className="flex justify-between items-center pr-10">
-          <Button text="+ Add Task Button" />
+          <Button text="+ Add New Task" />
           <img src={ellipsis} alt="ellipse" className="ml-6 cursor-pointer" />
         </div>
       </div>
+      <Modal open={true} close={}>
+        <AddNewTask />
+      </Modal>
     </div>
   );
 };

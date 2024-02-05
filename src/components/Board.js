@@ -16,7 +16,7 @@ const Board = () => {
       <div
         className={`bg-${
           darkMode ? "dark" : "light"
-        } h-[88vh] flex justify-start  ${sideBar ? "pl-[19rem]" : "pl-0 "}`}
+        } h-[88vh] flex justify-start pt-3 ${sideBar ? "pl-80" : "pl-4 "}`}
       >
         {selectedBoardDetails.map((board, index) => (
           <Column data={board} key={index} />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ellipsis from "../assets/icon-vertical-ellipsis.svg";
 import Button from "./Button";
 import { useSelector } from "react-redux";
@@ -10,6 +10,17 @@ import AddNewTask from "./AddNewTask";
 const Header = () => {
   const darkMode = useSelector((state) => state.app.darkMode);
   const sideBar = useSelector((state) => state.app.sideBar);
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleCloseModal = () => {
+    setIsOpen(false);
+  };
+
+  const handleOpenModel = () => {
+    setIsOpen(true);
+  };
+
   return (
     <div
       className={`bg-${darkMode ? "darkGray" : "white"} ${
@@ -38,11 +49,11 @@ const Header = () => {
           Platform Launch
         </h1>
         <div className="flex justify-between items-center pr-10">
-          <Button text="+ Add New Task" />
+          <Button text="+ Add New Task" click={handleOpenModel} />
           <img src={ellipsis} alt="ellipse" className="ml-6 cursor-pointer" />
         </div>
       </div>
-      <Modal open={true} close={}>
+      <Modal open={isOpen} close={handleCloseModal}>
         <AddNewTask />
       </Modal>
     </div>

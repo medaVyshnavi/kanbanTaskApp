@@ -57,7 +57,9 @@ const AddNewTask = () => {
           </select>
         </label>
       </div>
-      <Button text="Create Task" />
+      <div className="flex flex-col">
+        <Button text="Create Task" />
+      </div>
     </div>
   );
 };

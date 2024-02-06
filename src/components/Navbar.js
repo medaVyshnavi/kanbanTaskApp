@@ -7,6 +7,7 @@ import iconBoardFilled from "../assets/filled/icon-board.svg";
 import iconBoardWhite from "../assets/filled/icon-board-white.svg";
 import NavFooter from "./NavFooter";
 import { setBoard } from "../utils/store/boardSlice";
+import Modal from "./Modal";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -83,6 +84,9 @@ const Navbar = () => {
       ) : (
         ""
       )}
+      <Modal open={isOpen} close={handleCloseModal}>
+        <ViewTaskModal task={task} status={status} />
+      </Modal>
     </>
   );
 };

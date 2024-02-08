@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import darkLogo from "../assets/logo-dark.svg";
 import lightLogo from "../assets/logo-light.svg";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,6 +8,7 @@ import iconBoardWhite from "../assets/filled/icon-board-white.svg";
 import NavFooter from "./NavFooter";
 import { setBoard } from "../utils/store/boardSlice";
 import Modal from "./Modal";
+import AddNewBoard from "./AddNewBoard";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -18,10 +19,19 @@ const Navbar = () => {
   const boardData = board.allBoards.boards;
   const selectedBoard = board.selectedBoard;
 
+  const [isOpen, setIsOpen] = useState(false);
+
   const handleSelectBoard = (id) => {
     dispatch(setBoard(id));
   };
 
+  const handleCloseModal = () => {
+    setIsOpen(false);
+  };
+
+  const handleOpenModel = () => {
+    setIsOpen(true);
+  };
   return (
     <>
       {sideBar ? (
@@ -63,7 +73,9 @@ const Navbar = () => {
                       alt="board-icon"
                       className="w-4 h-4"
                     />
-                    <h4 className="text-base px-3">{item.name}</h4>
+                    <h4 className="text-base px-3 cursor-pointer">
+                      {item.name}
+                    </h4>
                   </div>
                 </div>
               ))}
@@ -73,7 +85,12 @@ const Navbar = () => {
                   alt="board-icon"
                   className="w-4 h-4 text-purple"
                 />
-                <h4 className="text-base px-3">+ Create New Board</h4>
+                <h4
+                  className="text-base px-3 cursor-pointer"
+                  onClick={handleOpenModel}
+                >
+                  + Create New Board
+                </h4>
               </div>
             </div>
             <div className="px-[34px]">
@@ -85,7 +102,7 @@ const Navbar = () => {
         ""
       )}
       <Modal open={isOpen} close={handleCloseModal}>
-        <ViewTaskModal task={task} status={status} />
+        <AddNewBoard />
       </Modal>
     </>
   );

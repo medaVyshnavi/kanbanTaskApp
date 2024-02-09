@@ -66,7 +66,11 @@ const Header = () => {
           Platform Launch
         </h1>
         <div className="flex justify-between items-center pr-10">
-          <Button text="+ Add New Task" click={handleOpenModel} />
+          <Button
+            text="+ Add New Task"
+            click={handleOpenModel}
+            className="bg-purple text-white"
+          />
           <img
             src={ellipsis}
             alt="ellipse"
@@ -82,6 +86,7 @@ const Header = () => {
         <DeletePopup
           title="Delete this board?"
           description={`Are you sure you want to delete the '${boardName}' board? This action will remove all columns and tasks and cannot be reversed.`}
+          onCancel={handleCloseDeleteModal}
         />
       </Modal>
     </div>

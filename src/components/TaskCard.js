@@ -9,6 +9,7 @@ const TaskCard = ({ task, status }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { title, subtasks } = task;
 
+  const completedTask = subtasks.filter((task) => task.isCompleted).length;
   const handleOpenModal = () => {
     setIsOpen(true);
   };
@@ -22,16 +23,16 @@ const TaskCard = ({ task, status }) => {
       <div
         className={`bg-${
           darkMode ? "darkGray" : "white"
-        } m-3 px-4 py-5 rounded-lg shadow-md w-72`}
+        } m-3 px-4 py-5 rounded-lg shadow-md w-72 cursor-pointer`}
         onClick={handleOpenModal}
       >
         <h3 className={`text-base ${darkMode ? "text-white" : "text-black"}`}>
           {title}
         </h3>
-        <p className="text-xs text-mediumGray pt-2">{`0 of ${subtasks?.length} subtasks`}</p>
+        <p className="text-xs text-mediumGray pt-2">{`${completedTask} of ${subtasks?.length} subtasks`}</p>
       </div>
       <Modal open={isOpen} close={handleCloseModal}>
-        <ViewTaskModal task={task} status={status} />
+        <ViewTaskModal mainTask={task} status={status} />
       </Modal>
     </>
   );

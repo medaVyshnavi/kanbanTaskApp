@@ -19,7 +19,7 @@ const EmptyBoard = () => {
         <h1 className="text-lg text-mediumGray pl-5">
           This board is empty. Create a new column to get started.
         </h1>
-        <Button text="+ Add New Column" />
+        <Button text="+ Add New Column" className="bg-purple text-white" />
       </div>
       {!sideBar && (
         <div>

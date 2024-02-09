@@ -32,10 +32,10 @@ const AddNewBoard = () => {
         </div>
       </div>
       <div className="flex flex-col">
-        <Button text="+Add New Column" className="" />
+        <Button text="+Add New Column" className="text-purple bg-light" />
       </div>
       <div className="flex flex-col">
-        <Button text="Create New Board" />
+        <Button text="Create New Board" className="bg-purple text-white" />
       </div>
     </div>
   );

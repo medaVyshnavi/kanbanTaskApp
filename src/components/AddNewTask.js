@@ -42,7 +42,7 @@ const AddNewTask = () => {
           <img src={Cross} alt="cancel" className="ml-6 cursor-pointer" />
         </div>
 
-        <Button text="+Add New Subtask" />
+        <Button text="+Add New Subtask" className="text-purple bg-light" />
       </div>
       <div>
         <label className="text-xs font-bold ">
@@ -58,7 +58,7 @@ const AddNewTask = () => {
         </label>
       </div>
       <div className="flex flex-col">
-        <Button text="Create Task" />
+        <Button text="Create Task" className="bg-purple text-white" />
       </div>
     </div>
   );

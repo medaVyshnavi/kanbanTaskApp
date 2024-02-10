@@ -39,7 +39,7 @@ const ViewTaskModal = ({ mainTask, status }) => {
             <input
               type="checkbox"
               checked={task.isCompleted}
-              className="pr-4 checked:bg-purple rounded-sm"
+              className="pr-4 checked:bg-purple rounded-sm hover:checked:bg-purple focus:checked:bg-purple focus:outline-none focus:ring outline-none active:bg-purple"
               onChange={() => {
                 handleCheckbox(task, status);
               }}

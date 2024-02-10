@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addNewTask } from "../utils/store/boardSlice";
 import Button from "./Button";
 import Cross from "../assets/icon-cross.svg";
 
-const AddNewTask = () => {
+const AddNewTask = ({ close }) => {
   const newTaskInitialState = {
     title: "",
     description: "",
@@ -10,6 +12,7 @@ const AddNewTask = () => {
     status: "",
   };
 
+  const dispatch = useDispatch();
   const [addTask, setAddTask] = useState(newTaskInitialState);
   const [addSubTasks, setAddSubTasks] = useState([]);
   const [counter, setCounter] = useState(1);
@@ -24,8 +27,10 @@ const AddNewTask = () => {
     e.preventDefault();
     setAddTask((prevState) => ({
       ...prevState,
-      subtasks: [...prevState.subtasks, addSubTasks],
+      subtasks: addSubTasks,
     }));
+    dispatch(addNewTask({ ...addTask, subtasks: addSubTasks }));
+    close();
   };
 
   const handleAddSubTasks = (e) => {
@@ -106,6 +111,9 @@ const AddNewTask = () => {
               id="status"
               className="text-sm w-full border border-mediumGray rounded-md p-3"
             >
+              <option value="" selected hidden>
+                Select status
+              </option>
               <option value="Todo">Todo</option>
               <option value="Doing">Doing</option>
               <option value="Done">Done</option>

@@ -11,7 +11,7 @@ const boardSlice = createSlice({
     setBoard: (action) => {
       return action.payload;
     },
-    isTaskCompleted: (state, action) => {
+    isSubTaskCompleted: (state, action) => {
       const val = state.allBoards.boards[state.selectedBoard].columns;
       let data = val
         .find((v) => v.name === action.payload[1])
@@ -20,8 +20,14 @@ const boardSlice = createSlice({
 
       data.isCompleted = !data.isCompleted;
     },
+    addNewTask: (state, action) => {
+      console.log(action.payload, 33);
+      const val = state.allBoards.boards[state.selectedBoard].columns;
+      const data = val.find((column) => column.name === action.payload.status);
+      data.tasks.push({ id: 4, ...action.payload });
+    },
   },
 });
 
 export default boardSlice.reducer;
-export const { setBoard, isTaskCompleted } = boardSlice.actions;
+export const { setBoard, isSubTaskCompleted, addNewTask } = boardSlice.actions;

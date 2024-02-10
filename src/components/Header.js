@@ -80,7 +80,7 @@ const Header = () => {
         </div>
       </div>
       <Modal open={isOpen} close={handleCloseModal}>
-        <AddNewTask />
+        <AddNewTask close={handleCloseModal} />
       </Modal>
       <Modal open={isDelete} close={handleCloseDeleteModal}>
         <DeletePopup

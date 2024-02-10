@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { isTaskCompleted } from "../utils/store/boardSlice";
+import { isSubTaskCompleted } from "../utils/store/boardSlice";
 import ellipsis from "../assets/icon-vertical-ellipsis.svg";
 
 const ViewTaskModal = ({ mainTask, status }) => {
@@ -10,7 +10,7 @@ const ViewTaskModal = ({ mainTask, status }) => {
   const completedTask = subtasks.filter((task) => task.isCompleted).length;
 
   const handleCheckbox = (task, status) => {
-    dispatch(isTaskCompleted([task, status, mainTask]));
+    dispatch(isSubTaskCompleted([task, status, mainTask]));
   };
 
   return (

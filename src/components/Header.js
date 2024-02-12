@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import ellipsis from "../assets/icon-vertical-ellipsis.svg";
 import Button from "./Button";
 import { useSelector } from "react-redux";
@@ -7,8 +8,10 @@ import lightLogo from "../assets/logo-light.svg";
 import Modal from "./Modal";
 import AddNewTask from "./AddNewTask";
 import DeletePopup from "./DeletePopup";
+import { deleteBoard, setBoard } from "../utils/store/boardSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const [isDelete, setIsDelete] = useState(false);
 
@@ -36,6 +39,11 @@ const Header = () => {
 
   const handleCloseDeleteModal = () => {
     setIsDelete(false);
+  };
+
+  const handleDeleteBoard = () => {
+    dispatch(deleteBoard(boardIndex));
+    handleCloseDeleteModal();
   };
 
   return (
@@ -87,6 +95,7 @@ const Header = () => {
           title="Delete this board?"
           description={`Are you sure you want to delete the '${boardName}' board? This action will remove all columns and tasks and cannot be reversed.`}
           onCancel={handleCloseDeleteModal}
+          deleteHandler={handleDeleteBoard}
         />
       </Modal>
     </div>

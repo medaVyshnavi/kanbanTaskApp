@@ -5,14 +5,18 @@ const boardSlice = createSlice({
   name: "Board",
   initialState: {
     allBoards: data,
-    selectedBoard: 0,
+    selectedBoard: data.boards[0].id,
   },
   reducers: {
-    setBoard: (action) => {
-      return action.payload;
+    setBoard: (state, action) => {
+      console.log(action.payload, 222);
+      state.selectedBoard = action.payload;
     },
     isSubTaskCompleted: (state, action) => {
-      const val = state.allBoards.boards[state.selectedBoard].columns;
+      const index = state.allBoards.boards.findIndex(
+        (board) => board.id === state.selectedBoard
+      );
+      const val = state.allBoards.boards[index].columns;
       let data = val
         .find((v) => v.name === action.payload[1])
         .tasks.find((task) => task.id == action.payload[2].id)
@@ -21,13 +25,23 @@ const boardSlice = createSlice({
       data.isCompleted = !data.isCompleted;
     },
     addNewTask: (state, action) => {
-      console.log(action.payload, 33);
-      const val = state.allBoards.boards[state.selectedBoard].columns;
+      const index = state.allBoards.boards.findIndex(
+        (board) => board.id === state.selectedBoard
+      );
+      const val = state.allBoards.boards[index].columns;
       const data = val.find((column) => column.name === action.payload.status);
       data.tasks.push({ id: 4, ...action.payload });
+    },
+    deleteBoard: (state, action) => {
+      const index = state.allBoards.boards.findIndex(
+        (board) => board.id === action.payload
+      );
+      index !== -1 && state.allBoards.boards.splice(index, 1);
+      state.selectedBoard = state.allBoards.boards[0].id;
     },
   },
 });
 
 export default boardSlice.reducer;
-export const { setBoard, isSubTaskCompleted, addNewTask } = boardSlice.actions;
+export const { setBoard, isSubTaskCompleted, addNewTask, deleteBoard } =
+  boardSlice.actions;

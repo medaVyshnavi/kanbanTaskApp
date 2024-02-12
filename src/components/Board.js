@@ -9,7 +9,9 @@ const Board = () => {
   const darkMode = useSelector((state) => state.app.darkMode);
   const sideBar = useSelector((state) => state.app.sideBar);
   const selectedBoard = useSelector((state) => state.board.selectedBoard);
-  const selectedBoardDetails = data.boards[selectedBoard].columns;
+  const val = data.boards.find((board) => board.id === selectedBoard);
+  const newData = data.boards.indexOf(val);
+  const selectedBoardDetails = data.boards[newData]?.columns;
 
   return (
     <div className="overflow-y-auto">
@@ -18,7 +20,7 @@ const Board = () => {
           darkMode ? "dark" : "light"
         } h-[88vh] flex justify-start pt-3 ${sideBar ? "pl-80" : "pl-4 "}`}
       >
-        {selectedBoardDetails.map((board, index) => (
+        {selectedBoardDetails?.map((board, index) => (
           <Column data={board} key={index} />
         ))}
         <NewColumn />

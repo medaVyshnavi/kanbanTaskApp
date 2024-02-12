@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { isSubTaskCompleted } from "../utils/store/boardSlice";
 import ellipsis from "../assets/icon-vertical-ellipsis.svg";
 
-const ViewTaskModal = ({ mainTask, status }) => {
+const ViewTaskModal = ({ mainTask, status, openModal }) => {
   const dispatch = useDispatch();
   const { title, description, subtasks } = mainTask;
 
@@ -20,8 +20,8 @@ const ViewTaskModal = ({ mainTask, status }) => {
         <img
           src={ellipsis}
           alt="ellipse"
-          className="ml-6 cursor-pointer
-        "
+          className="ml-6 cursor-pointer"
+          onClick={() => openModal()}
         />
       </div>
 

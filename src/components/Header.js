@@ -8,12 +8,12 @@ import lightLogo from "../assets/logo-light.svg";
 import Modal from "./Modal";
 import AddNewTask from "./AddNewTask";
 import DeletePopup from "./DeletePopup";
-import { deleteBoard, setBoard } from "../utils/store/boardSlice";
+import { deleteBoard } from "../utils/store/boardSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
-  const [isDelete, setIsDelete] = useState(false);
+  const [isDeleteBoard, setIsDeleteBoard] = useState(false);
 
   const darkMode = useSelector((state) => state.app.darkMode);
   const sideBar = useSelector((state) => state.app.sideBar);
@@ -34,11 +34,11 @@ const Header = () => {
   };
 
   const handleDelete = () => {
-    setIsDelete(true);
+    setIsDeleteBoard(true);
   };
 
   const handleCloseDeleteModal = () => {
-    setIsDelete(false);
+    setIsDeleteBoard(false);
   };
 
   const handleDeleteBoard = () => {
@@ -90,7 +90,7 @@ const Header = () => {
       <Modal open={isOpen} close={handleCloseModal}>
         <AddNewTask close={handleCloseModal} />
       </Modal>
-      <Modal open={isDelete} close={handleCloseDeleteModal}>
+      <Modal open={isDeleteBoard} close={handleCloseDeleteModal}>
         <DeletePopup
           title="Delete this board?"
           description={`Are you sure you want to delete the '${boardName}' board? This action will remove all columns and tasks and cannot be reversed.`}

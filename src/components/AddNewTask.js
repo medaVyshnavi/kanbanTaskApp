@@ -14,8 +14,13 @@ const AddNewTask = ({ close }) => {
 
   const dispatch = useDispatch();
   const [addTask, setAddTask] = useState(newTaskInitialState);
-  const [addSubTasks, setAddSubTasks] = useState([]);
-  const [counter, setCounter] = useState(1);
+  const [addSubTasks, setAddSubTasks] = useState([
+    {
+      id: "",
+      title: "",
+      isCompleted: false,
+    },
+  ]);
 
   const handleInputChange = (e) => {
     const id = e.target.id;
@@ -33,13 +38,23 @@ const AddNewTask = ({ close }) => {
     close();
   };
 
-  const handleAddSubTasks = (e) => {
-    const subTask = {
-      id: e.target.id,
-      title: e.target.value,
-      isCompleted: false,
-    };
-    setAddSubTasks((prevState) => [...prevState, subTask]);
+  const handleAddSubTasks = () => {
+    setAddSubTasks([...addSubTasks, { id: "", title: "", isCompleted: false }]);
+  };
+
+  const handleRemoveTask = (index) => {
+    const list = [...addSubTasks];
+    list.splice(index, 1);
+    setAddSubTasks(list);
+  };
+
+  const handleTaskChange = (e, index) => {
+    const { value } = e.target;
+    const list = [...addSubTasks];
+    list[index]["title"] = value;
+    list[index]["id"] = index;
+    list[index]["isCompleted"] = false;
+    setAddSubTasks(list);
   };
 
   return (
@@ -76,13 +91,13 @@ const AddNewTask = ({ close }) => {
           <label className="text-xs font-bold " htmlFor="subTask">
             Subtasks
           </label>
-          {Array.from(Array(counter)).map((c, index) => {
+          {addSubTasks.map((task, index) => {
             return (
               <div className="flex justify-between items-center" key={index}>
                 <input
                   type="text"
-                  id={index}
-                  onChange={handleAddSubTasks}
+                  value={task.title}
+                  onChange={(e) => handleTaskChange(e, index)}
                   placeholder="e.g. Make coffee"
                   className="flex-1 text-sm border border-1 border-linesLight p-2 rounded-md my-1 focus:border-purple focus:border-2 focus-visible:outline-none"
                 />
@@ -90,7 +105,7 @@ const AddNewTask = ({ close }) => {
                   src={Cross}
                   alt="cancel"
                   className="ml-6 cursor-pointer"
-                  onClick={() => setCounter((prev) => prev - 1)}
+                  onClick={() => handleRemoveTask(index)}
                 />
               </div>
             );
@@ -99,7 +114,7 @@ const AddNewTask = ({ close }) => {
           <Button
             text="+Add New Subtask"
             className="text-purple bg-light"
-            click={() => setCounter((prev) => prev + 1)}
+            click={handleAddSubTasks}
           />
         </div>
         <div>
@@ -111,7 +126,7 @@ const AddNewTask = ({ close }) => {
               id="status"
               className="text-sm w-full border border-mediumGray rounded-md p-3"
             >
-              <option value="" selected hidden>
+              <option value="" defaultChecked hidden>
                 Select status
               </option>
               <option value="Todo">Todo</option>

@@ -102,7 +102,7 @@ const Navbar = () => {
         ""
       )}
       <Modal open={isOpen} close={handleCloseModal}>
-        <AddNewBoard />
+        <AddNewBoard close={handleCloseModal} />
       </Modal>
     </>
   );

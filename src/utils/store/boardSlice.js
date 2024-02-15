@@ -23,6 +23,18 @@ const boardSlice = createSlice({
 
       data.isCompleted = !data.isCompleted;
     },
+    addNewboard: (state, action) => {
+      const index = state.allBoards.boards.reduce(
+        (a, c) => ((a[c.id] = c), a),
+        {}
+      );
+      state.allBoards.boards.push({
+        id: Math.max(...Object.keys(index)) + 1,
+        name: action.payload,
+        columns: [],
+      });
+      state.selectedBoard = Math.max(...Object.keys(index)) + 1;
+    },
     addNewTask: (state, action) => {
       const index = state.allBoards.boards.findIndex(
         (board) => board.id === state.selectedBoard
@@ -59,6 +71,7 @@ export const {
   setBoard,
   isSubTaskCompleted,
   addNewTask,
+  addNewboard,
   deleteBoard,
   deleteTask,
 } = boardSlice.actions;

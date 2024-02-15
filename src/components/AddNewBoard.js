@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import Button from "./Button";
-import Cross from "../assets/icon-cross.svg";
+import { addNewboard } from "../utils/store/boardSlice";
 
-const AddNewBoard = () => {
+const AddNewBoard = ({ close }) => {
+  const dispatch = useDispatch();
+  const [newBoard, setNewBoard] = useState("");
+
+  const newBoardHandler = () => {
+    dispatch(addNewboard(newBoard));
+    close();
+  };
+
   return (
     <div className="text-mediumGray tracking-wide">
       <h1 className="text-xl text-black">Add New Board</h1>
@@ -13,29 +22,18 @@ const AddNewBoard = () => {
         <input
           type="text"
           name="name"
+          value={newBoard}
+          onChange={(e) => setNewBoard(e.target.value)}
           placeholder="e.g. Web Design"
           className="text-sm border border-1 border-linesLight p-2 rounded-md my-1"
         />
       </div>
-      <div>
-        <label htmlFor="columns" className="text-xs font-bold">
-          Columns
-        </label>
-        <div className="flex justify-between items-center">
-          <input
-            type="text"
-            id="columns"
-            placeholder="Todo"
-            className="text-black flex-1 text-sm border border-1 border-linesLight p-2 rounded-md my-1 focus:border-purple focus:border-2 focus-visible:outline-none"
-          />
-          <img src={Cross} alt="cancel" className="ml-6 cursor-pointer" />
-        </div>
-      </div>
       <div className="flex flex-col">
-        <Button text="+Add New Column" className="text-purple bg-light" />
-      </div>
-      <div className="flex flex-col">
-        <Button text="Create New Board" className="bg-purple text-white" />
+        <Button
+          text="Create New Board"
+          className="bg-purple text-white"
+          click={newBoardHandler}
+        />
       </div>
     </div>
   );

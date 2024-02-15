@@ -48,6 +48,30 @@ const boardSlice = createSlice({
         ...action.payload,
       });
     },
+    addNewColumn: (state, action) => {
+      const index = state.allBoards.boards.findIndex(
+        (board) => board.id === state.selectedBoard
+      );
+      if (state.allBoards.boards[index].columns.length === 0) {
+        state.allBoards.boards[index].columns.push({
+          id: 1,
+          name: action.payload,
+          tasks: [],
+        });
+      } else {
+        const val = state.allBoards.boards[index].columns.reduce(
+          (a, c) => ((a[c.id] = c), a),
+          {}
+        );
+        state.allBoards.boards[index].columns.push({
+          id: Math.max(...Object.keys(val)) + 1,
+          name: action.payload,
+          task: [],
+        });
+      }
+
+      console.log(state.allBoards.boards[index].columns.length, 22);
+    },
     deleteBoard: (state, action) => {
       const index = state.allBoards.boards.findIndex(
         (board) => board.id === action.payload
@@ -72,6 +96,7 @@ export const {
   isSubTaskCompleted,
   addNewTask,
   addNewboard,
+  addNewColumn,
   deleteBoard,
   deleteTask,
 } = boardSlice.actions;

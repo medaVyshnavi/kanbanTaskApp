@@ -6,12 +6,13 @@ import NewColumn from "./NewColumn";
 
 const Board = () => {
   const data = useSelector((state) => state.board.allBoards);
-  const darkMode = useSelector((state) => state.app.darkMode);
-  const sideBar = useSelector((state) => state.app.sideBar);
   const selectedBoard = useSelector((state) => state.board.selectedBoard);
   const val = data.boards.find((board) => board.id === selectedBoard);
   const newData = data.boards.indexOf(val);
   const selectedBoardDetails = data.boards[newData]?.columns;
+
+  const darkMode = useSelector((state) => state.app.darkMode);
+  const sideBar = useSelector((state) => state.app.sideBar);
 
   return (
     <div className="overflow-y-auto">

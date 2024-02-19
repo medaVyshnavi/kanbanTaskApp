@@ -66,11 +66,9 @@ const boardSlice = createSlice({
         state.allBoards.boards[index].columns.push({
           id: Math.max(...Object.keys(val)) + 1,
           name: action.payload,
-          task: [],
+          tasks: [],
         });
       }
-
-      console.log(state.allBoards.boards[index].columns.length, 22);
     },
     deleteBoard: (state, action) => {
       const index = state.allBoards.boards.findIndex(

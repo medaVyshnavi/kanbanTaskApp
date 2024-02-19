@@ -1,16 +1,27 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { isSubTaskCompleted } from "../utils/store/boardSlice";
 import ellipsis from "../assets/icon-vertical-ellipsis.svg";
 
 const ViewTaskModal = ({ mainTask, status, openModal }) => {
   const dispatch = useDispatch();
-  const { title, description, subtasks } = mainTask;
 
+  const data = useSelector((state) => state.board.allBoards);
+  const selectedBoard = useSelector((state) => state.board.selectedBoard);
+  const val = data.boards.find((board) => board.id === selectedBoard);
+  const newData = data.boards.indexOf(val);
+  const selectedBoardDetails = data.boards[newData]?.columns;
+
+  const { title, description, subtasks } = mainTask;
   const completedTask = subtasks.filter((task) => task.isCompleted).length;
+  const [taskStatus, setTaskStatus] = useState(status);
 
   const handleCheckbox = (task, status) => {
     dispatch(isSubTaskCompleted([task, status, mainTask]));
+  };
+
+  const handleInputChange = (e) => {
+    console.log(e.target.value, 777);
   };
 
   return (
@@ -57,12 +68,19 @@ const ViewTaskModal = ({ mainTask, status, openModal }) => {
       <label className="text-xs mb-3 text-mediumGray">
         Current Status
         <select
-          defaultValue={status}
+          value={taskStatus}
+          onChange={(e) => handleInputChange(e)}
+          id="status"
           className="text-sm w-full border border-mediumGray rounded-md p-3"
         >
-          <option value="Todo">Todo</option>
-          <option value="Doing">Doing</option>
-          <option value="Done">Done</option>
+          <option value="" defaultChecked hidden>
+            Select status
+          </option>
+          {selectedBoardDetails.map((column, index) => (
+            <option key={index} value={column.name}>
+              {column.name}
+            </option>
+          ))}
         </select>
       </label>
     </div>

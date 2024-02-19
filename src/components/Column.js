@@ -7,7 +7,7 @@ const Column = ({ data }) => {
       <div className="flex items-center text-mediumGray text-xs tracking-wide py-3 pl-3">
         <span className="w-4 h-4 bg-bubbleOne block rounded-full"></span>
         <h1 className="px-3">{`${data.name.toUpperCase()} `}</h1>
-        <h2>{`(${data.tasks.length})`}</h2>
+        <h2>{`(${data.tasks?.length})`}</h2>
       </div>
       <div>
         {data.tasks?.map((task, index) => (

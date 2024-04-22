@@ -64,12 +64,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 [comment]: <> (6. deleting the subtasks)
 [comment]: <> (7. dark theme and light theme)
 [comment]: <> (8. uuid generation)
+[comment]: <> (9. fix scroll bar in main page for column )
 
 [comment]: <> (PENDING TASKS)
 [comment]: <> (1. Testing)
 [comment]: <> (2. different screen size)
-[comment]: <> (3. last item is not deleted)
 [comment]: <> (4. editing the tasks and subtasks)
 [comment]: <> (5. changing the dropdown on subtask for current status)
-[comment]: <> (6. fix scroll bar in main page for column )
 [comment]: <> (7. error handling for input fields)

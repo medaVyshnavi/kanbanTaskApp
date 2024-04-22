@@ -1,4 +1,6 @@
 import { createSlice, current } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from 'uuid';
+
 import data from "../../data/data.json";
 
 const boardSlice = createSlice({
@@ -24,16 +26,12 @@ const boardSlice = createSlice({
       data.isCompleted = !data.isCompleted;
     },
     addNewboard: (state, action) => {
-      const index = state.allBoards.boards.reduce(
-        (a, c) => ((a[c.id] = c), a),
-        {}
-      );
       state.allBoards.boards.push({
-        id: Math.max(...Object.keys(index)) + 1,
+        id: uuidv4(),
         name: action.payload,
         columns: [],
       });
-      state.selectedBoard = Math.max(...Object.keys(index)) + 1;
+      state.selectedBoard = state.allBoards.boards[state.allBoards.boards.length-1].id;
     },
     addNewTask: (state, action) => {
       const index = state.allBoards.boards.findIndex(
@@ -42,9 +40,9 @@ const boardSlice = createSlice({
       const val = state.allBoards.boards[index].columns.find(
         (column) => column.name === action.payload.status
       );
-      let obj = val.tasks.reduce((a, c) => ((a[c.id] = c), a), {});
-      val.tasks.push({
-        id: Math.max(...Object.keys(obj)) + 1,
+
+      val.tasks.push({        
+        id:uuidv4(),
         ...action.payload,
       });
     },
@@ -54,17 +52,13 @@ const boardSlice = createSlice({
       );
       if (state.allBoards.boards[index].columns.length === 0) {
         state.allBoards.boards[index].columns.push({
-          id: 1,
+          id: uuidv4(),
           name: action.payload,
           tasks: [],
         });
       } else {
-        const val = state.allBoards.boards[index].columns.reduce(
-          (a, c) => ((a[c.id] = c), a),
-          {}
-        );
         state.allBoards.boards[index].columns.push({
-          id: Math.max(...Object.keys(val)) + 1,
+          id: uuidv4(),
           name: action.payload,
           tasks: [],
         });
@@ -97,4 +91,5 @@ export const {
   addNewColumn,
   deleteBoard,
   deleteTask,
+  isStatusChanged
 } = boardSlice.actions;

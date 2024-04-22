@@ -7,6 +7,7 @@ const Body = () => {
   const boardList = useSelector((state) => state.board.allBoards.boards);
   const boardIndex = useSelector((state) => state.board.selectedBoard);
   const board = boardList.filter((board) => board.id === boardIndex);
+  console.log(board)
   return (
     <div>{board[0].columns.length === 0 ? <EmptyBoard /> : <Board />}</div>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { isSubTaskCompleted } from "../utils/store/boardSlice";
+import { isSubTaskCompleted,isStatusChanged } from "../utils/store/boardSlice";
 import ellipsis from "../assets/icon-vertical-ellipsis.svg";
 
 const ViewTaskModal = ({ mainTask, status, openModal }) => {
@@ -21,7 +21,8 @@ const ViewTaskModal = ({ mainTask, status, openModal }) => {
   };
 
   const handleInputChange = (e) => {
-    console.log(e.target.value, 777);
+    console.log(mainTask,11)
+    dispatch(isStatusChanged(e.target.value));
   };
 
   return (

@@ -22,8 +22,8 @@ const Header = () => {
   const boardIndex = useSelector((state) => state.board.selectedBoard);
 
   const boardName = boardList
-    .filter((board) => (board.id == boardIndex ? board.name : ""))
-    .map((board) => board.name);
+    ?.filter((board) => (board.id == boardIndex ? board.name : ""))
+    ?.map((board) => board.name);
 
   const handleCloseModal = () => {
     setIsOpen(false);

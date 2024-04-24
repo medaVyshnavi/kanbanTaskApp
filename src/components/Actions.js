@@ -1,47 +1,42 @@
-import React, {useState} from 'react'
-import { useSelector } from "react-redux";
+import React from 'react'
 import { useDispatch } from "react-redux";
 import Modal from "./Modal";
 import DeletePopup from "./DeletePopup";
 import { deleteBoard } from "../utils/store/boardSlice";
+import { deleteTask } from "../utils/store/boardSlice";
 
-const Actions = ({setOpenActions}) => {
+
+const Actions = ({setOpenActions,title,message,index,type,deleteItem,setDeleteItem,setIsOpen}) => {
   const dispatch = useDispatch();
-  const boardList = useSelector((state) => state.board.allBoards.boards);
-  const boardIndex = useSelector((state) => state.board.selectedBoard);
-
-  const boardName = boardList
-    ?.filter((board) => (board.id == boardIndex ? board.name : ""))
-    ?.map((board) => board.name);
-  const [isDeleteBoard, setIsDeleteBoard] = useState(false);
-
+  
   const handleDeleteAction = () => {
-    setIsDeleteBoard(true);
+    setDeleteItem(true);
   };
 
   const handleCloseDeleteModal = () => {
-    setIsDeleteBoard(false);
+    setDeleteItem(false);
     setOpenActions(false)
   };
 
-  const handleDeleteBoard = () => {
-    dispatch(deleteBoard(boardIndex));
+  const handleDeleteItem = () => {
+    if(type == "Board" ? dispatch(deleteBoard(index)) : dispatch(deleteTask(index)))
     handleCloseDeleteModal();
     setOpenActions(false)
+    setIsOpen(false)
   };
 
   return (
     <div>
       <div className='bg-white absolute top-[80px] right-[36px] rounded text-sm flex flex-col items-start justify-center'>
-        <button className='text-mediumGray px-6 pb-3 pt-2'>Edit Board</button>
-        <button className='text-red px-6 pb-3' onClick={handleDeleteAction}>Delete Board</button>
+        <button className='text-mediumGray px-6 pb-3 pt-2'>{`Edit ${type}`}</button>
+        <button className='text-red px-6 pb-3' onClick={handleDeleteAction}>{`Delete ${type}`}</button>
       </div>
-      <Modal open={isDeleteBoard} close={handleCloseDeleteModal}>
+      <Modal open={deleteItem} close={handleCloseDeleteModal}>
         <DeletePopup
-          title="Delete this board?"
-          description={`Are you sure you want to delete the '${boardName}' board? This action will remove all columns and tasks and cannot be reversed.`}
+          title={title}
+          description={message}
           onCancel={handleCloseDeleteModal}
-          deleteHandler={handleDeleteBoard}
+          deleteHandler={handleDeleteItem}
         />
       </Modal>
     </div>

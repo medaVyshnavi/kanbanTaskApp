@@ -15,11 +15,11 @@ const Board = () => {
   const sideBar = useSelector((state) => state.app.sideBar);
 
   return (
-    <div className="overflow-y-auto">
+    <div>
       <div
         className={`bg-${
           darkMode ? "dark" : "light"
-        } h-[88vh] flex justify-start pt-3 ${sideBar ? "pl-80" : "pl-4 "}`}
+        } h-[88vh] flex justify-start pt-3 ${sideBar ? "pl-80" : "pl-4 "} w-fit`}
       >
         {selectedBoardDetails?.map((board, index) => (
           <Column data={board} key={index} />

@@ -6,8 +6,13 @@ import Button from "./Button";
 const AddNewColumn = ({ close }) => {
   const dispatch = useDispatch();
   const [newColumn, setNewColumn] = useState("");
+  const [error,setError] = useState(false)
 
   const newBoardHandler = () => {
+    if(newColumn.length == 0){
+      setError(true)
+      return
+    }
     dispatch(addNewColumn(newColumn));
     close();
   };
@@ -27,6 +32,7 @@ const AddNewColumn = ({ close }) => {
           placeholder="e.g. Todo"
           className="text-sm border border-1 border-linesLight p-2 rounded-md my-1"
         />
+        <p className="text-red text-[10px] ml-1">{error ? "Column name is required" : ""}</p>
       </div>
       <div className="flex flex-col">
         <Button

@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { isSubTaskCompleted,isStatusChanged } from "../utils/store/boardSlice";
 import ellipsis from "../assets/icon-vertical-ellipsis.svg";
+import Actions from "./Actions";
 
-const ViewTaskModal = ({ mainTask, status, openModal }) => {
+const ViewTaskModal = ({ mainTask, status,setIsOpen }) => {
   const dispatch = useDispatch();
 
   const data = useSelector((state) => state.board.allBoards);
@@ -15,15 +16,20 @@ const ViewTaskModal = ({ mainTask, status, openModal }) => {
   const { title, description, subtasks } = mainTask;
   const completedTask = subtasks.filter((task) => task.isCompleted).length;
   const [taskStatus, setTaskStatus] = useState(status);
+  const [openActions,setOpenActions] = useState(false)
+  const [isDeleteTask, setIsDeleteTask] = useState(false);
 
   const handleCheckbox = (task, status) => {
     dispatch(isSubTaskCompleted([task, status, mainTask]));
   };
 
   const handleInputChange = (e) => {
-    console.log(mainTask,11)
     dispatch(isStatusChanged(e.target.value));
   };
+
+  const handleActions = () => {
+    setOpenActions(!openActions)
+  }
 
   return (
     <div className="text-black">
@@ -33,7 +39,7 @@ const ViewTaskModal = ({ mainTask, status, openModal }) => {
           src={ellipsis}
           alt="ellipse"
           className="ml-6 cursor-pointer"
-          onClick={() => openModal()}
+          onClick={handleActions}
         />
       </div>
 
@@ -84,6 +90,18 @@ const ViewTaskModal = ({ mainTask, status, openModal }) => {
           ))}
         </select>
       </label>
+      {openActions && 
+      (<Actions 
+          setOpenActions={setOpenActions} 
+          title={"Delete this Task?"}
+          message={`Are you sure you want to delete the ‘${title} task and its subtasks? This action cannot be reversed.`}
+          index={[mainTask,status]}
+          type="Task"
+          deleteItem={isDeleteTask}
+          setDeleteItem={setIsDeleteTask}
+          setIsOpen={setIsOpen}
+        />)}
+
     </div>
   );
 };

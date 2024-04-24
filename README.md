@@ -71,4 +71,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 [comment]: <> (2. different screen size)
 [comment]: <> (4. editing the tasks and subtasks)
 [comment]: <> (5. changing the dropdown on subtask for current status)
-[comment]: <> (7. error handling for input fields)
+[comment]: <> (6. hover states)
+[comment]: <> (7. error handling for add new task)

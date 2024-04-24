@@ -12,9 +12,16 @@ import Actions from "./Actions";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openActions,setOpenActions] = useState(false)
+  const [isDeleteBoard, setIsDeleteBoard] = useState(false);
 
   const darkMode = useSelector((state) => state.app.darkMode);
   const sideBar = useSelector((state) => state.app.sideBar);
+  const boardList = useSelector((state) => state.board.allBoards.boards);
+  const boardIndex = useSelector((state) => state.board.selectedBoard);
+
+  const boardName = boardList
+    ?.filter((board) => (board.id == boardIndex ? board.name : ""))
+    ?.map((board) => board.name);
 
   const handleCloseModal = () => {
     setIsOpen(false);
@@ -72,7 +79,17 @@ const Header = () => {
       <Modal open={isOpen} close={handleCloseModal}>
         <AddNewTask close={handleCloseModal} />
       </Modal>
-      {openActions && <Actions setOpenActions={setOpenActions}/>}
+      {openActions && (
+      <Actions 
+          setOpenActions={setOpenActions} 
+          title={"Delete this Board?"} 
+          message={`Are you sure you want to delete the '${boardName}' board? This action will remove all columns and tasks and cannot be reversed.`}
+          index={boardIndex}
+          type="Board"
+          deleteItem={isDeleteBoard}
+          setDeleteItem={setIsDeleteBoard}
+          setIsOpen={setIsOpen}
+        />)}
     </div>
   );
 };

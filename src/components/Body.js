@@ -8,7 +8,7 @@ const Body = () => {
   const boardIndex = useSelector((state) => state.board.selectedBoard);
   const board = boardList.filter((board) => board.id === boardIndex);
   return (
-    <div>{board[0].columns.length === 0 ? <EmptyBoard /> : <Board />}</div>
+    <div className="overflow-x-auto">{board[0].columns.length === 0 ? <EmptyBoard /> : <Board />}</div>
   );
 };
 

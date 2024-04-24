@@ -77,7 +77,7 @@ const boardSlice = createSlice({
       );
       const val = state.allBoards.boards[index].columns;
       const data = val.find((column) => column.name == action.payload[1]);
-      data.tasks.splice(action.payload[0], 1);
+      data.tasks.splice(action.payload[0].id, 1);
     },
   },
 });

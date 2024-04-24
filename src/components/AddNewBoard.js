@@ -6,8 +6,13 @@ import { addNewboard } from "../utils/store/boardSlice";
 const AddNewBoard = ({ close }) => {
   const dispatch = useDispatch();
   const [newBoard, setNewBoard] = useState("");
+  const [error,setError] = useState(false)
 
   const newBoardHandler = () => {
+    if(newBoard.length == 0){
+      setError(true)
+      return
+    }
     dispatch(addNewboard(newBoard));
     close();
   };
@@ -27,6 +32,7 @@ const AddNewBoard = ({ close }) => {
           placeholder="e.g. Web Design"
           className="text-sm border border-1 border-linesLight p-2 rounded-md my-1"
         />
+        <p className="text-red text-[10px] ml-1">{error ? "Board name is required" : ""}</p>
       </div>
       <div className="flex flex-col">
         <Button

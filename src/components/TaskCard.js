@@ -3,14 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import Modal from "./Modal";
 import ViewTaskModal from "./ViewTaskModal";
-import DeletePopup from "./DeletePopup";
-import { deleteTask } from "../utils/store/boardSlice";
 
 const TaskCard = ({ task, status }) => {
-  const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.app.darkMode);
   const [isOpen, setIsOpen] = useState(false);
-  const [isDeleteTask, setIsDeleteTask] = useState(false);
   const { title, subtasks } = task;
 
   const completedTask = subtasks.filter((task) => task.isCompleted).length;
@@ -20,21 +16,6 @@ const TaskCard = ({ task, status }) => {
 
   const handleCloseTaskModal = () => {
     setIsOpen(false);
-  };
-
-  const handleCloseDeleteModal = () => {
-    setIsDeleteTask(false);
-    setIsOpen(true);
-  };
-
-  const handleOpenDeleteModel = () => {
-    setIsDeleteTask(true);
-    setIsOpen(false);
-  };
-
-  const handleDeleteTask = () => {
-    dispatch(deleteTask([task.id, status]));
-    setIsDeleteTask(false);
   };
 
   return (
@@ -54,15 +35,7 @@ const TaskCard = ({ task, status }) => {
         <ViewTaskModal
           mainTask={task}
           status={status}
-          openModal={handleOpenDeleteModel}
-        />
-      </Modal>
-      <Modal open={isDeleteTask} close={handleCloseDeleteModal}>
-        <DeletePopup
-          title="Delete this task?"
-          description={`Are you sure you want to delete the ‘${title} task and its subtasks? This action cannot be reversed.`}
-          onCancel={handleCloseDeleteModal}
-          deleteHandler={handleDeleteTask}
+          setIsOpen={setIsOpen}
         />
       </Modal>
     </>

@@ -31,7 +31,7 @@ const EmptyBoard = () => {
         </h1>
         <Button
           text="+ Add New Column"
-          className="bg-purple text-white"
+          className="bg-purple text-white hover:bg-purpleHover"
           click={handleOpenModal}
         />
       </div>

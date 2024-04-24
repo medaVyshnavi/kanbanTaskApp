@@ -57,9 +57,9 @@ const Navbar = () => {
                   key={index}
                   className={`${
                     selectedBoard == item.id
-                      ? "bg-purple my-2 mr-6 rounded-r-3xl text-white"
-                      : "text-mediumGray"
-                  }`}
+                      ? "bg-purple  text-white"
+                      : "text-mediumGray hover:bg-lightGray hover:text-purple"
+                  } mr-6 rounded-r-3xl`}
                   onClick={() => handleSelectBoard(item.id)}
                 >
                   <div

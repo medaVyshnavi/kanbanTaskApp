@@ -90,6 +90,5 @@ export const {
   addNewboard,
   addNewColumn,
   deleteBoard,
-  deleteTask,
-  isStatusChanged
+  deleteTask,  
 } = boardSlice.actions;

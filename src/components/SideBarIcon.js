@@ -13,7 +13,7 @@ const SideBarIcon = () => {
       <img
         src={showSideBarIcon}
         alt="show"
-        className="w-4 h-3 fixed bottom-16"
+        className="w-4 h-3 fixed"
       />
     </div>
   );

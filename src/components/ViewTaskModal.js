@@ -23,10 +23,6 @@ const ViewTaskModal = ({ mainTask, status,setIsOpen }) => {
     dispatch(isSubTaskCompleted([task, status, mainTask]));
   };
 
-  const handleInputChange = (e) => {
-    dispatch(isStatusChanged(e.target.value));
-  };
-
   const handleActions = () => {
     setOpenActions(!openActions)
   }
@@ -76,18 +72,13 @@ const ViewTaskModal = ({ mainTask, status,setIsOpen }) => {
         Current Status
         <select
           value={taskStatus}
-          onChange={(e) => handleInputChange(e)}
+          readOnly
           id="status"
-          className="text-sm w-full border border-mediumGray rounded-md p-3"
+          className="text-sm w-full border border-mediumGray rounded-md p-3 appearance-none webkit"
         >
           <option value="" defaultChecked hidden>
-            Select status
+            {taskStatus}
           </option>
-          {selectedBoardDetails.map((column, index) => (
-            <option key={index} value={column.name}>
-              {column.name}
-            </option>
-          ))}
         </select>
       </label>
       {openActions && 

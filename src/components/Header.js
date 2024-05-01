@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import ellipsis from "../assets/icon-vertical-ellipsis.svg";
 import Button from "./Button";
 import { useSelector } from "react-redux";
@@ -66,7 +65,7 @@ const Header = () => {
           <Button
             text="+ Add New Task"
             click={handleOpenModel}
-            className="bg-purple text-white"
+            className="bg-purple text-white hover:bg-purpleHover"
           />
           <img
             src={ellipsis}

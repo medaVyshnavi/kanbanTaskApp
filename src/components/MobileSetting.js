@@ -1,50 +1,9 @@
-import React, { useState } from "react";
-import darkLogo from "../assets/logo-dark.svg";
-import lightLogo from "../assets/logo-light.svg";
-import { useDispatch, useSelector } from "react-redux";
-import iconBoard from "../assets/icon-board.svg";
-import iconBoardFilled from "../assets/filled/icon-board.svg";
-import iconBoardWhite from "../assets/filled/icon-board-white.svg";
-import NavFooter from "./NavFooter";
-import { setBoard } from "../utils/store/boardSlice";
-import Modal from "./Modal";
-import AddNewBoard from "./AddNewBoard";
+import React from 'react'
 
-const Navbar = () => {
-  const dispatch = useDispatch();
-  const board = useSelector((state) => state.board);
-  const darkMode = useSelector((state) => state.app.darkMode);
-  const sideBar = useSelector((state) => state.app.sideBar);
-
-  const boardData = board.allBoards.boards;
-  const selectedBoard = board.selectedBoard;
-
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleSelectBoard = (id) => {
-    dispatch(setBoard(id));
-  };
-
-  const handleCloseModal = () => {
-    setIsOpen(false);
-  };
-
-  const handleOpenModel = () => {
-    setIsOpen(true);
-  };
-
+const MobileSetting = () => {
   return (
-    <>
-      {sideBar ? (
-        <nav
-          className={`bg-${
-            darkMode ? "darkGray" : "white"
-          } h-screen w-[300px] absolute top-0 pt-8 border-r-[1px] border-${
-            darkMode ? "linesDark" : "linesLight"
-          }
-          `}
-        >
-          <div>
+    <div>
+       <div>
             <div className="px-[34px]">
               <img src={darkMode ? lightLogo : darkLogo} alt="logo" />
               <h3 className="text-xs text-mediumGray pt-14 pb-2">
@@ -98,15 +57,8 @@ const Navbar = () => {
               <NavFooter />
             </div>
           </div>
-        </nav>
-      ) : (
-        ""
-      )}
-      <Modal open={isOpen} close={handleCloseModal}>
-        <AddNewBoard close={handleCloseModal} />
-      </Modal>
-    </>
-  );
-};
+    </div>
+  )
+}
 
-export default Navbar;
+export default MobileSetting

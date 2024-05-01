@@ -9,7 +9,7 @@ const AddNewTask = ({ close }) => {
     title: '',
     description: '',
     subtasks: [],
-    status: '',
+    status: 'Todo',
   };
 
   const dispatch = useDispatch();
@@ -20,6 +20,7 @@ const AddNewTask = ({ close }) => {
   const selectedBoardDetails = data.boards[newData]?.columns;
 
   const [addTask, setAddTask] = useState(newTaskInitialState);
+  const [errors,setErrors] = useState({})
   const [addSubTasks, setAddSubTasks] = useState([
     {
       id: '',
@@ -40,8 +41,22 @@ const AddNewTask = ({ close }) => {
       ...prevState,
       subtasks: addSubTasks,
     }));
-    dispatch(addNewTask({ ...addTask, subtasks: addSubTasks }));
-    close();
+    const newErrors = {};
+    if (!addTask.title) {
+      newErrors.title = 'Title is required';
+    }
+    console.log(addTask.subtasks.length, addTask.subtasks,111)
+    if (!(addTask.subtasks && addTask.subtasks[0]?.title)) {
+      newErrors.subtasks = 'Add atleast one sub task';
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+    } else {
+      
+      dispatch(addNewTask({ ...addTask, subtasks: addSubTasks }));
+      close();
+    }
   };
 
   const handleAddSubTasks = () => {
@@ -62,7 +77,7 @@ const AddNewTask = ({ close }) => {
     list[index]['isCompleted'] = false;
     setAddSubTasks(list);
   };
-
+ console.log(errors,22)
   return (
     <div className='text-mediumGray tracking-wide overflow-y-scroll max-h-[640px]'>
       <h1 className='text-xl text-black'>Add New Task</h1>
@@ -79,6 +94,7 @@ const AddNewTask = ({ close }) => {
             id='title'
             className='text-sm border border-1 border-linesLight p-2 rounded-md my-1 focus:border-purple focus:border-2 focus-visible:outline-none'
           ></input>
+          {errors.title && <p className='text-red text-[9px]'>{errors.title}</p>}
         </div>
         <div className='flex flex-col my-4'>
           <label className='text-xs font-bold ' htmlFor='description'>
@@ -116,7 +132,8 @@ const AddNewTask = ({ close }) => {
               </div>
             );
           })}
-
+          {errors.subtasks && <p className='text-red text-[9px]'>{errors.subtasks}</p>}
+       
           <Button
             text='+Add New Subtask'
             className='text-purple bg-light'

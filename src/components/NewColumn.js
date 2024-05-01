@@ -17,7 +17,7 @@ const NewColumn = () => {
   return (
     <>
       <div className="w-64 h-5/6 bg-linesLight text-mediumGray flex items-center justify-center mt-14 m-3 rounded-md">
-        <Button text={"+ New Column"} click={handleOpenModal} />
+        <Button text={"+ New Column"} click={handleOpenModal} className={"hover:text-purple"}/>
       </div>
       <Modal open={isOpen} close={handleCloseModal}>
         <AddNewColumn close={handleCloseModal} />

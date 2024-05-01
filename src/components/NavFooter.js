@@ -33,7 +33,7 @@ const Footer = () => {
         <img src={darkTheme} alt="dark theme" className="w-4 h-4" />
       </div>
       <div
-        className="flex justify-start items-center mt-5 cursor-pointer"
+        className="flex justify-start items-center mt-5 cursor-pointer hover:bg-lightGray"
         onClick={() => dispatch(handleSideBar())}
       >
         <img

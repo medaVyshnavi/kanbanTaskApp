@@ -1,17 +1,24 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "./Button";
 import { addNewboard } from "../utils/store/boardSlice";
 
 const AddNewBoard = ({ close }) => {
   const dispatch = useDispatch();
+  const data = useSelector((state) => state.board.allBoards.boards);
+  const boardNameList = data.map((board) => board.name.toLowerCase());
+
   const [newBoard, setNewBoard] = useState("");
-  const [error,setError] = useState(false)
+  const [error, setError] = useState({ name: false, duplicate: false });
 
   const newBoardHandler = () => {
-    if(newBoard.length == 0){
-      setError(true)
-      return
+    if (newBoard.length == 0) {
+      setError((prev) => ({ ...prev, name: true }));
+      return;
+    }
+    if (boardNameList.includes(newBoard.toLowerCase())) {
+      setError((prev) => ({ ...prev, duplicate: true }));
+      return;
     }
     dispatch(addNewboard(newBoard));
     close();
@@ -32,7 +39,10 @@ const AddNewBoard = ({ close }) => {
           placeholder="e.g. Web Design"
           className="text-sm border border-1 border-linesLight p-2 rounded-md my-1"
         />
-        <p className="text-red text-[10px] ml-1">{error ? "Board name is required" : ""}</p>
+        <p className="text-red text-[10px] ml-1">
+          {error?.name ? "Board name is required" : ""}
+          {error?.duplicate ? "Duplicate Board name." : ""}
+        </p>
       </div>
       <div className="flex flex-col">
         <Button

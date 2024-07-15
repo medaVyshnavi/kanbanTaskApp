@@ -30,12 +30,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 [comment]: <> (9. fix scroll bar in main page for column )
 [comment]: <> (10. error handling for add new task)
 [comment]: <> (11. hover states)
+[comment]: <> (12. error handling for duplicate board name and column name)
 
 [comment]: <> (PENDING TASKS)
 [comment]: <> (1. different screen size)
 [comment]: <> (2. editing the tasks and subtasks)
-[comment]: <> (3. task status in view task list doesnt not show and also fix on-hover only for that)
-[comment]: <> (4. error handling for duplicate board name and column name)
+[comment]: <> (3. edit task status from view task page also)
 
 [comment]: <> (Extra TASKS)
 [comment]: <> (1. drag and drop tasks)

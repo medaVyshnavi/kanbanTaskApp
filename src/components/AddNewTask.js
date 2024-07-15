@@ -81,7 +81,7 @@ const AddNewTask = ({ close }) => {
     <div
       className={`${
         darkMode ? "text-white" : "text-mediumGray "
-      } tracking-wide overflow-y-scroll max-h-[640px]`}
+      } tracking-wide overflow-y-scroll max-h-[560px]`}
     >
       <h1 className={`text-xl ${darkMode ? "text-white" : "text-black"}`}>
         Add New Task

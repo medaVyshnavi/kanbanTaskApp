@@ -12,8 +12,9 @@ const ViewTaskModal = ({ mainTask, status, setIsOpen }) => {
   const selectedBoard = useSelector((state) => state.board.selectedBoard);
   const val = data.boards.find((board) => board.id === selectedBoard);
   const newData = data.boards.indexOf(val);
-  const selectedBoardDetails = data.boards[newData]?.columns;
-
+  const selectedBoardColumns = data.boards[newData]?.columns?.map(
+    (col) => col.name
+  );
   const { title, description, subtasks } = mainTask;
   const completedTask = subtasks.filter((task) => task.isCompleted).length;
   const [taskStatus, setTaskStatus] = useState(status);
@@ -27,6 +28,8 @@ const ViewTaskModal = ({ mainTask, status, setIsOpen }) => {
   const handleActions = () => {
     setOpenActions(!openActions);
   };
+
+  const handleStatusChange = () => {};
 
   return (
     <div className={`text-${darkMode ? "white" : "black"}`}>
@@ -94,11 +97,15 @@ const ViewTaskModal = ({ mainTask, status, setIsOpen }) => {
           value={taskStatus}
           readOnly
           id="status"
+          onChange={() => handleStatusChange()}
           className="text-sm w-full border border-mediumGray rounded-md p-3 appearance-none webkit"
         >
           <option value="" defaultChecked hidden>
             {taskStatus}
           </option>
+          {selectedBoardColumns.map((col, index) => (
+            <option key={index}>{col}</option>
+          ))}
         </select>
       </label>
       {openActions && (

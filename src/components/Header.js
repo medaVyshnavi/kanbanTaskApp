@@ -10,7 +10,7 @@ import Actions from "./Actions";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [openActions,setOpenActions] = useState(false)
+  const [openActions, setOpenActions] = useState(false);
   const [isDeleteBoard, setIsDeleteBoard] = useState(false);
 
   const darkMode = useSelector((state) => state.app.darkMode);
@@ -19,8 +19,14 @@ const Header = () => {
   const boardIndex = useSelector((state) => state.board.selectedBoard);
 
   const boardName = boardList
-    ?.filter((board) => (board.id == boardIndex ? board.name : ""))
+    ?.filter((board) => board.id == boardIndex)
     ?.map((board) => board.name);
+
+  const selecteBoardColumn = boardList?.filter(
+    (board) => board.id == boardIndex
+  );
+
+  const isDisabled = selecteBoardColumn[0].columns?.length > 0 ? false : true;
 
   const handleCloseModal = () => {
     setIsOpen(false);
@@ -31,15 +37,15 @@ const Header = () => {
   };
 
   const handleActions = () => {
-    setOpenActions(!openActions)
-  }
+    setOpenActions(!openActions);
+  };
 
   return (
     <div
       className={`bg-${darkMode ? "darkGray" : "white"} ${
         !sideBar &&
-        `flex justify-start items-center border-b-[1px] relative border-${
-          darkMode ? "linesDark" : "linesLight"
+        `flex justify-start items-center border-b-[1px] relative ${
+          darkMode ? "border-linesDark" : "border-linesLight"
         }`
       } `}
     >
@@ -65,7 +71,10 @@ const Header = () => {
           <Button
             text="+ Add New Task"
             click={handleOpenModel}
-            className="bg-purple text-white hover:bg-purpleHover"
+            disabled={isDisabled}
+            className={`text-white hover:bg-purpleHover ${
+              isDisabled ? "bg-purpleHover" : "bg-purple"
+            }`}
           />
           <img
             src={ellipsis}
@@ -79,16 +88,17 @@ const Header = () => {
         <AddNewTask close={handleCloseModal} />
       </Modal>
       {openActions && (
-      <Actions 
-          setOpenActions={setOpenActions} 
-          title={"Delete this Board?"} 
+        <Actions
+          setOpenActions={setOpenActions}
+          title={"Delete this Board?"}
           message={`Are you sure you want to delete the '${boardName}' board? This action will remove all columns and tasks and cannot be reversed.`}
           index={boardIndex}
           type="Board"
           deleteItem={isDeleteBoard}
           setDeleteItem={setIsDeleteBoard}
           setIsOpen={setIsOpen}
-        />)}
+        />
+      )}
     </div>
   );
 };

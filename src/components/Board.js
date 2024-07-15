@@ -17,9 +17,11 @@ const Board = () => {
   return (
     <div>
       <div
-        className={`bg-${
-          darkMode ? "dark" : "light"
-        } h-[88vh] flex justify-start pt-3 ${sideBar ? "pl-80" : "pl-4 "} w-fit`}
+        className={`${
+          darkMode ? "bg-dark" : "bg-light"
+        } h-[88vh] flex justify-start pt-3 ${
+          sideBar ? "pl-80" : "pl-4 "
+        } w-fit bg`}
       >
         {selectedBoardDetails?.map((board, index) => (
           <Column data={board} key={index} />

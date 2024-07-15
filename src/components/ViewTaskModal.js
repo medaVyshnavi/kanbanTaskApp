@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { isSubTaskCompleted,isStatusChanged } from "../utils/store/boardSlice";
+import { isSubTaskCompleted, isStatusChanged } from "../utils/store/boardSlice";
 import ellipsis from "../assets/icon-vertical-ellipsis.svg";
 import Actions from "./Actions";
 
-const ViewTaskModal = ({ mainTask, status,setIsOpen }) => {
+const ViewTaskModal = ({ mainTask, status, setIsOpen }) => {
   const dispatch = useDispatch();
 
+  const darkMode = useSelector((state) => state.app.darkMode);
   const data = useSelector((state) => state.board.allBoards);
   const selectedBoard = useSelector((state) => state.board.selectedBoard);
   const val = data.boards.find((board) => board.id === selectedBoard);
@@ -16,7 +17,7 @@ const ViewTaskModal = ({ mainTask, status,setIsOpen }) => {
   const { title, description, subtasks } = mainTask;
   const completedTask = subtasks.filter((task) => task.isCompleted).length;
   const [taskStatus, setTaskStatus] = useState(status);
-  const [openActions,setOpenActions] = useState(false)
+  const [openActions, setOpenActions] = useState(false);
   const [isDeleteTask, setIsDeleteTask] = useState(false);
 
   const handleCheckbox = (task, status) => {
@@ -24,11 +25,11 @@ const ViewTaskModal = ({ mainTask, status,setIsOpen }) => {
   };
 
   const handleActions = () => {
-    setOpenActions(!openActions)
-  }
+    setOpenActions(!openActions);
+  };
 
   return (
-    <div className="text-black">
+    <div className={`text-${darkMode ? "white" : "black"}`}>
       <div className="flex justify-between items-center mb-5">
         <h1 className="text-lg flex-1">{title}</h1>
         <img
@@ -39,13 +40,30 @@ const ViewTaskModal = ({ mainTask, status,setIsOpen }) => {
         />
       </div>
 
-      <p className="text-sm text-mediumGray mb-5 leading-6">{description}</p>
-      <p className="text-xs text-mediumGray mb-2">{`Subtasks(${completedTask} of ${subtasks.length})`}</p>
+      <p
+        className={`text-sm ${
+          darkMode ? "text-white" : "text-mediumGray"
+        } mb-5 leading-6`}
+      >
+        {description}
+      </p>
+      <p
+        className={`text-xs ${
+          darkMode ? "text-white" : "text-mediumGray"
+        } mb-2`}
+      >
+        {" "}
+        {`Subtasks(${completedTask} of ${subtasks.length})`}
+      </p>
       <div>
         {subtasks.map((task) => (
           <div
             key={task.id}
-            className={`flex justify-start items-center px-5 py-3 rounded-md bg-light ${
+            className={`flex justify-start items-center px-5 py-3 rounded-md ${
+              darkMode ? "bg-linesDark" : "bg-light"
+            } cursor-pointer hover:${
+              darkMode ? "bg-linesDark" : "bg-purpleHover"
+            } ${
               task.isCompleted &&
               "line-through decoration-1 decoration-mediumGray"
             } my-4`}
@@ -60,7 +78,9 @@ const ViewTaskModal = ({ mainTask, status,setIsOpen }) => {
             />
             <p
               className={`text-xs font-bold pl-6 flex-1 text-${
-                task.isCompleted ? "mediumGray" : "black"
+                task.isCompleted
+                  ? "mediumGray"
+                  : `${darkMode ? "white" : "black"}`
               }`}
             >
               {task.title}{" "}
@@ -81,18 +101,18 @@ const ViewTaskModal = ({ mainTask, status,setIsOpen }) => {
           </option>
         </select>
       </label>
-      {openActions && 
-      (<Actions 
-          setOpenActions={setOpenActions} 
+      {openActions && (
+        <Actions
+          setOpenActions={setOpenActions}
           title={"Delete this Task?"}
           message={`Are you sure you want to delete the ‘${title} task and its subtasks? This action cannot be reversed.`}
-          index={[mainTask,status]}
+          index={[mainTask, status]}
           type="Task"
           deleteItem={isDeleteTask}
           setDeleteItem={setIsDeleteTask}
           setIsOpen={setIsOpen}
-        />)}
-
+        />
+      )}
     </div>
   );
 };

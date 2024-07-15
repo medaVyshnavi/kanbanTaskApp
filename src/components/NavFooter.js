@@ -14,7 +14,7 @@ const Footer = () => {
       <div
         className={`bg-${
           darkMode ? "dark" : "light"
-        } flex rounded-md items-center justify-center mr-6 py-3 px-2`}
+        } flex rounded-md items-center justify-center mr-6 py-3 px-2 w-[130%]`}
       >
         <img src={lightTheme} alt="light theme" className="w-5 h-5" />
         <div className="px-6 cursor-pointer">
@@ -33,7 +33,7 @@ const Footer = () => {
         <img src={darkTheme} alt="dark theme" className="w-4 h-4" />
       </div>
       <div
-        className="flex justify-start items-center mt-5 cursor-pointer hover:bg-lightGray"
+        className="flex justify-start items-center mt-1 py-3 px-4 cursor-pointer hover:bg-lightGray hover:rounded-md w-[130%]"
         onClick={() => dispatch(handleSideBar())}
       >
         <img

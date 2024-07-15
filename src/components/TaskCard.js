@@ -26,7 +26,7 @@ const TaskCard = ({ task, status }) => {
         } m-3 px-4 py-5 rounded-lg shadow-md w-72 cursor-pointer`}
         onClick={handleOpenTaskModal}
       >
-        <h3 className={`text-base ${darkMode ? "text-white" : "text-black"}`}>
+        <h3 className={`text-base ${darkMode ? "text-white" : "text-black"} hover:text-purple`}>
           {title}
         </h3>
         <p className="text-xs text-mediumGray pt-2">{`${completedTask} of ${subtasks?.length} subtasks`}</p>

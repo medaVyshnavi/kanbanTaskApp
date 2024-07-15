@@ -10,50 +10,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
 ### Making a Progressive Web App
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 [comment]: <> (COMPLETED TASKS)
 [comment]: <> (1. displaying the tasks)
@@ -66,11 +29,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 [comment]: <> (8. uuid generation)
 [comment]: <> (9. fix scroll bar in main page for column )
 [comment]: <> (10. error handling for add new task)
+[comment]: <> (11. hover states)
 
 [comment]: <> (PENDING TASKS)
-[comment]: <> (1. Testing)
-[comment]: <> (2. different screen size)
-[comment]: <> (3. editing the tasks and subtasks)
-[comment]: <> (4. hover states)
-[comment]: <> (5. error handling for duplicate board name and column name)
-[comment]: <> (6. drag and drop tasks )
+[comment]: <> (1. different screen size)
+[comment]: <> (2. editing the tasks and subtasks)
+[comment]: <> (3. task status in view task list doesnt not show and also fix on-hover only for that)
+[comment]: <> (4. error handling for duplicate board name and column name)
+
+[comment]: <> (Extra TASKS)
+[comment]: <> (1. drag and drop tasks)
+[comment]: <> (2. Testing)
+[comment]: <> (3. Making it PWA)

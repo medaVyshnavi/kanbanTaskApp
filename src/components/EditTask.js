@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addNewTask } from "../utils/store/boardSlice";
+import { updateTask } from "../utils/store/boardSlice";
 import Button from "./Button";
 import Cross from "../assets/icon-cross.svg";
+import { v4 as uuidv4 } from "uuid";
 
 const EditTask = ({ close, details }) => {
   const [taskDetails, status] = details;
@@ -10,8 +11,6 @@ const EditTask = ({ close, details }) => {
     id: taskDetails?.id,
     title: taskDetails?.title,
     description: taskDetails?.description,
-    subtasks: taskDetails?.subtasks,
-    status: status,
   };
 
   const dispatch = useDispatch();
@@ -24,13 +23,8 @@ const EditTask = ({ close, details }) => {
 
   const [addTask, setAddTask] = useState(newTaskInitialState);
   const [errors, setErrors] = useState({});
-  const [addSubTasks, setAddSubTasks] = useState([
-    {
-      id: "",
-      title: "",
-      isCompleted: false,
-    },
-  ]);
+  const [addSubTasks, setAddSubTasks] = useState(taskDetails?.subtasks);
+  const [newStatus, setNewStatus] = useState(status);
 
   const handleInputChange = (e) => {
     const id = e.target.id;
@@ -55,28 +49,31 @@ const EditTask = ({ close, details }) => {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
-      dispatch(addNewTask({ ...addTask, subtasks: addSubTasks }));
+      dispatch(
+        updateTask([{ ...addTask, subtasks: addSubTasks, status }, status])
+      );
       close();
     }
   };
 
   const handleAddSubTasks = () => {
-    setAddSubTasks([...addSubTasks, { id: "", title: "", isCompleted: false }]);
+    setAddSubTasks([
+      ...addSubTasks,
+      { id: uuidv4(), title: "", isCompleted: false },
+    ]);
   };
 
-  const handleRemoveTask = (index) => {
+  const handleRemoveTask = (id) => {
     const list = [...addSubTasks];
-    list.splice(index, 1);
+    list.splice(id, 1);
     setAddSubTasks(list);
   };
 
-  const handleTaskChange = (e, index) => {
-    const { value } = e.target;
-    const list = [...addSubTasks];
-    list[index]["title"] = value;
-    list[index]["id"] = index;
-    list[index]["isCompleted"] = false;
-    setAddSubTasks(list);
+  const handleTaskChange = (e, id) => {
+    let updateTask = addSubTasks.map((task) =>
+      task.id == id ? { ...task, title: e.target.value } : task
+    );
+    setAddSubTasks((prev) => updateTask);
   };
 
   return (
@@ -130,13 +127,13 @@ const EditTask = ({ close, details }) => {
           <label className="text-xs font-bold " htmlFor="subTask">
             Subtasks
           </label>
-          {addTask?.subtasks?.map((task, index) => {
+          {addSubTasks?.map((task) => {
             return (
-              <div className="flex justify-between items-center" key={index}>
+              <div className="flex justify-between items-center" key={task.id}>
                 <input
                   type="text"
                   value={task.title}
-                  onChange={(e) => handleTaskChange(e, index)}
+                  onChange={(e) => handleTaskChange(e, task.id)}
                   placeholder="e.g. Make coffee"
                   className={`text-black ${
                     darkMode
@@ -148,7 +145,7 @@ const EditTask = ({ close, details }) => {
                   src={Cross}
                   alt="cancel"
                   className={`ml-6 cursor-pointe`}
-                  onClick={() => handleRemoveTask(index)}
+                  onClick={() => handleRemoveTask(task.id)}
                 />
               </div>
             );
@@ -169,14 +166,14 @@ const EditTask = ({ close, details }) => {
           <label className="text-xs font-bold " htmlFor="status">
             Status
             <select
-              value={addTask.status}
-              onChange={(e) => handleInputChange(e)}
+              value={newStatus}
+              onChange={(e) => setNewStatus(e.target.value)}
               id="status"
               className={`text-black ${
                 darkMode
                   ? "bg-darkGray border-dark"
                   : "bg-white border-linesLight "
-              } text-sm w-full border border-mediumGray rounded-md p-3`}
+              } text-sm w-full border border-mediumGray rounded-md px-3 py-2`}
             >
               <option value="" defaultChecked hidden>
                 Select status

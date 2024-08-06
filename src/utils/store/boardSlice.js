@@ -86,6 +86,20 @@ const boardSlice = createSlice({
       );
       state.allBoards.boards.splice(0, 1, action.payload);
     },
+    updateTask: (state, action) => {
+      const index = state.allBoards.boards.findIndex(
+        (board) => board.id === state.selectedBoard
+      );
+      const val = state.allBoards.boards[index].columns.find(
+        (column) => column.name === action.payload[1]
+      );
+      const taskIndex = val.tasks.findIndex(
+        (task) => task.id == action.payload[0]["id"]
+      );
+      if (taskIndex !== -1) {
+        val.tasks[taskIndex] = action.payload[0];
+      }
+    },
   },
 });
 
@@ -99,4 +113,5 @@ export const {
   deleteBoard,
   deleteTask,
   updateBoard,
+  updateTask,
 } = boardSlice.actions;

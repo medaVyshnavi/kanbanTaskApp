@@ -1,5 +1,5 @@
 import { createSlice, current } from "@reduxjs/toolkit";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 import data from "../../data/data.json";
 
@@ -31,7 +31,8 @@ const boardSlice = createSlice({
         name: action.payload,
         columns: [],
       });
-      state.selectedBoard = state.allBoards.boards[state.allBoards.boards.length-1].id;
+      state.selectedBoard =
+        state.allBoards.boards[state.allBoards.boards.length - 1].id;
     },
     addNewTask: (state, action) => {
       const index = state.allBoards.boards.findIndex(
@@ -41,8 +42,8 @@ const boardSlice = createSlice({
         (column) => column.name === action.payload.status
       );
 
-      val.tasks.push({        
-        id:uuidv4(),
+      val.tasks.push({
+        id: uuidv4(),
         ...action.payload,
       });
     },
@@ -79,6 +80,12 @@ const boardSlice = createSlice({
       const data = val.find((column) => column.name == action.payload[1]);
       data.tasks.splice(action.payload[0].id, 1);
     },
+    updateBoard: (state, action) => {
+      const index = state.allBoards.boards.findIndex(
+        (board) => board.id === state.selectedBoard
+      );
+      state.allBoards.boards.splice(0, 1, action.payload);
+    },
   },
 });
 
@@ -90,5 +97,6 @@ export const {
   addNewboard,
   addNewColumn,
   deleteBoard,
-  deleteTask,  
+  deleteTask,
+  updateBoard,
 } = boardSlice.actions;

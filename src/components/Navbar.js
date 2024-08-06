@@ -48,12 +48,12 @@ const Navbar = () => {
             <div className="px-[34px]">
               <img src={darkMode ? lightLogo : darkLogo} alt="logo" />
               <h3 className="text-xs text-mediumGray pt-14 pb-2">
-                ALL BOARDS ({boardData.length})
+                ALL BOARDS ({boardData?.length})
               </h3>
             </div>
 
             <div>
-              {boardData.map((item, index) => (
+              {boardData?.map((item, index) => (
                 <div
                   key={index}
                   className={`${

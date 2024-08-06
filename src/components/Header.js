@@ -26,7 +26,10 @@ const Header = () => {
     (board) => board.id == boardIndex
   );
 
-  const isDisabled = selecteBoardColumn[0].columns?.length > 0 ? false : true;
+  const isDisabled =
+    selecteBoardColumn && selecteBoardColumn[0].columns?.length > 0
+      ? false
+      : true;
 
   const handleCloseModal = () => {
     setIsOpen(false);
@@ -65,7 +68,7 @@ const Header = () => {
       >
         {" "}
         <h1 className={`text-xl text-${darkMode ? "white" : "black"} pl-4`}>
-          Platform Launch
+          {boardName}
         </h1>
         <div className="flex justify-between items-center pr-10">
           <Button

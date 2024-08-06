@@ -4,12 +4,14 @@ import { addNewTask } from "../utils/store/boardSlice";
 import Button from "./Button";
 import Cross from "../assets/icon-cross.svg";
 
-const AddNewTask = ({ close }) => {
+const EditTask = ({ close, details }) => {
+  const [taskDetails, status] = details;
   const newTaskInitialState = {
-    title: "",
-    description: "",
-    subtasks: [],
-    status: "Todo",
+    id: taskDetails?.id,
+    title: taskDetails?.title,
+    description: taskDetails?.description,
+    subtasks: taskDetails?.subtasks,
+    status: status,
   };
 
   const dispatch = useDispatch();
@@ -84,7 +86,7 @@ const AddNewTask = ({ close }) => {
       } tracking-wide overflow-y-scroll max-h-[560px]`}
     >
       <h1 className={`text-xl ${darkMode ? "text-white" : "text-black"}`}>
-        Add New Task
+        Edit New Task
       </h1>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col my-4">
@@ -128,7 +130,7 @@ const AddNewTask = ({ close }) => {
           <label className="text-xs font-bold " htmlFor="subTask">
             Subtasks
           </label>
-          {addSubTasks.map((task, index) => {
+          {addTask?.subtasks?.map((task, index) => {
             return (
               <div className="flex justify-between items-center" key={index}>
                 <input
@@ -189,7 +191,7 @@ const AddNewTask = ({ close }) => {
         </div>
         <div className="flex flex-col">
           <Button
-            text="Create Task"
+            text="Edit Task"
             type="submit"
             className="bg-purple text-white hover:bg-purpleHover"
             click={() => console.log("submit")}
@@ -200,4 +202,4 @@ const AddNewTask = ({ close }) => {
   );
 };
 
-export default AddNewTask;
+export default EditTask;

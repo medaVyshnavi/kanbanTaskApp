@@ -5,6 +5,7 @@ import DeletePopup from "./DeletePopup";
 import { deleteBoard } from "../utils/store/boardSlice";
 import { deleteTask } from "../utils/store/boardSlice";
 import EditBoard from "./EditBoard";
+import EditTask from "./EditTask";
 
 const Actions = ({
   setOpenActions,
@@ -20,6 +21,7 @@ const Actions = ({
   const darkMode = useSelector((state) => state.app.darkMode);
 
   const [isEditBoardOpen, setIsEditBoardOpen] = useState(false);
+  const [isEditTaskOpen, setIsEditTaskOpen] = useState(false);
 
   const handleDeleteAction = () => {
     setDeleteItem(true);
@@ -45,8 +47,16 @@ const Actions = ({
     setIsEditBoardOpen(true);
   };
 
+  const handleEditTask = () => {
+    setIsEditTaskOpen(true);
+  };
+
   const handleCloseEditModal = () => {
     setIsEditBoardOpen(false);
+  };
+
+  const handleCloseEditTaskModal = () => {
+    setIsEditTaskOpen(false);
   };
 
   return (
@@ -58,7 +68,7 @@ const Actions = ({
       >
         <button
           className="text-mediumGray px-6 pb-3 pt-2"
-          onClick={handleEditBoard}
+          onClick={type == "Board" ? handleEditBoard : handleEditTask}
         >{`Edit ${type}`}</button>
         <button
           className="text-red px-6 pb-3"
@@ -74,7 +84,10 @@ const Actions = ({
         />
       </Modal>
       <Modal open={isEditBoardOpen} close={handleCloseEditModal}>
-        <EditBoard />
+        <EditBoard close={handleCloseEditModal} />
+      </Modal>
+      <Modal open={isEditTaskOpen} close={handleCloseEditTaskModal}>
+        <EditTask close={handleCloseEditTaskModal} details={index} />
       </Modal>
     </div>
   );

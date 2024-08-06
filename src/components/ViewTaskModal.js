@@ -64,8 +64,8 @@ const ViewTaskModal = ({ mainTask, status, setIsOpen }) => {
             key={task.id}
             className={`flex justify-start items-center px-5 py-3 rounded-md ${
               darkMode ? "bg-linesDark" : "bg-light"
-            } cursor-pointer hover:${
-              darkMode ? "bg-linesDark" : "bg-purpleHover"
+            } cursor-pointer ${
+              darkMode ? "hover:bg-linesDark" : "hover:bg-purpleHover"
             } ${
               task.isCompleted &&
               "line-through decoration-1 decoration-mediumGray"

@@ -10,7 +10,7 @@ import { setBoard } from "../utils/store/boardSlice";
 import Modal from "./Modal";
 import AddNewBoard from "./AddNewBoard";
 
-const Navbar = () => {
+const Sidebar = () => {
   const dispatch = useDispatch();
   const board = useSelector((state) => state.board);
   const darkMode = useSelector((state) => state.app.darkMode);
@@ -34,7 +34,7 @@ const Navbar = () => {
   };
 
   return (
-    <>
+    <div className="hidden md:block">
       {sideBar ? (
         <nav
           className={`bg-${
@@ -105,8 +105,8 @@ const Navbar = () => {
       <Modal open={isOpen} close={handleCloseModal}>
         <AddNewBoard close={handleCloseModal} />
       </Modal>
-    </>
+    </div>
   );
 };
 
-export default Navbar;
+export default Sidebar;

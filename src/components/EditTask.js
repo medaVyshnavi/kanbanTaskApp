@@ -50,7 +50,10 @@ const EditTask = ({ close, details }) => {
       setErrors(newErrors);
     } else {
       dispatch(
-        updateTask([{ ...addTask, subtasks: addSubTasks, status }, status])
+        updateTask([
+          { ...addTask, subtasks: addSubTasks, status: newStatus },
+          newStatus,
+        ])
       );
       close();
     }

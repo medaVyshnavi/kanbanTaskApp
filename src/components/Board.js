@@ -20,7 +20,7 @@ const Board = () => {
         className={`${
           darkMode ? "bg-dark" : "bg-light"
         } h-[88vh] flex justify-start pt-3 ${
-          sideBar ? "pl-80" : "pl-4 "
+          sideBar ? "pl-3 md:pl-80" : "pl-4 "
         } w-fit bg`}
       >
         {selectedBoardDetails?.map((board, index) => (

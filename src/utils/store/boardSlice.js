@@ -96,8 +96,11 @@ const boardSlice = createSlice({
       const taskIndex = val.tasks.findIndex(
         (task) => task.id == action.payload[0]["id"]
       );
+      console.log(taskIndex);
       if (taskIndex !== -1) {
         val.tasks[taskIndex] = action.payload[0];
+      } else {
+        val.tasks.push(action.payload[0]);
       }
     },
   },

@@ -23,10 +23,10 @@ const EmptyBoard = () => {
         className={`bg-${
           darkMode ? "dark" : "light"
         } h-[88vh] flex flex-col justify-center items-center  ${
-          sideBar ? "pl-72" : "pl-0"
+          sideBar ? "pl-0 md:pl-72" : "pl-0"
         }`}
       >
-        <h1 className="text-lg text-mediumGray pl-5">
+        <h1 className="text-lg text-mediumGray px-4 md:pl-5">
           This board is empty. Create a new column to get started.
         </h1>
         <Button

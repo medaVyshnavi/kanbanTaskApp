@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { isSubTaskCompleted, isStatusChanged } from "../utils/store/boardSlice";
+import { isSubTaskCompleted } from "../utils/store/boardSlice";
 import ellipsis from "../assets/icon-vertical-ellipsis.svg";
 import Actions from "./Actions";
 
@@ -28,8 +28,6 @@ const ViewTaskModal = ({ mainTask, status, setIsOpen }) => {
   const handleActions = () => {
     setOpenActions(!openActions);
   };
-
-  const handleStatusChange = () => {};
 
   return (
     <div className={`text-${darkMode ? "white" : "black"}`}>
@@ -97,15 +95,14 @@ const ViewTaskModal = ({ mainTask, status, setIsOpen }) => {
           value={taskStatus}
           readOnly
           id="status"
-          onChange={() => handleStatusChange()}
           className="text-sm w-full border border-mediumGray rounded-md p-3 appearance-none webkit"
         >
           <option value="" defaultChecked hidden>
             {taskStatus}
           </option>
-          {selectedBoardColumns.map((col, index) => (
+          {/* {selectedBoardColumns.map((col, index) => (
             <option key={index}>{col}</option>
-          ))}
+          ))} */}
         </select>
       </label>
       {openActions && (

@@ -1,21 +1,27 @@
 import Body from "./components/Body";
 import Header from "./components/Header";
-import Navbar from "./components/Navbar";
+import MobileHeader from "./components/MobileHeader";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
     <>
-      <div>
-        <header>
+      <header>
+        <div className="hidden md:block">
           <Header />
-        </header>
-        <nav>
-          <Navbar />
-        </nav>
-        <body>
+        </div>
+        <div className="block md:hidden">
+          <MobileHeader />
+        </div>
+      </header>
+      <nav>
+        <Sidebar />
+      </nav>
+      <body>
+        <div>
           <Body />
-        </body>
-      </div>
+        </div>
+      </body>
     </>
   );
 }

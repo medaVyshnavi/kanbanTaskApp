@@ -20,6 +20,7 @@ module.exports = {
       bubbleThree: "#67E2AE",
       lightGray: "#EAE9F6",
       red: "#EA5555",
+      disabled: "#d8d8f2",
     },
     fontSize: {
       xs: "0.75rem", //12px heading(s) body(m)

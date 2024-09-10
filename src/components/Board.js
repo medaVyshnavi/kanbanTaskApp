@@ -28,11 +28,13 @@ const Board = () => {
         ))}
         <NewColumn />
       </div>
-      {!sideBar && (
-        <div>
-          <SideBarIcon />
-        </div>
-      )}
+      <div className="hidden md:block">
+        {!sideBar && (
+          <div>
+            <SideBarIcon />
+          </div>
+        )}
+      </div>
     </div>
   );
 };

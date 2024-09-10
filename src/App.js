@@ -1,9 +1,13 @@
+import { useState } from "react";
 import Body from "./components/Body";
 import Header from "./components/Header";
+import Menu from "./components/Menu";
 import MobileHeader from "./components/MobileHeader";
 import Sidebar from "./components/Sidebar";
 
 function App() {
+
+  const [isMenuOpen,setIsMenuOpen] = useState(false)
   return (
     <>
       <header>
@@ -11,16 +15,19 @@ function App() {
           <Header />
         </div>
         <div className="block md:hidden">
-          <MobileHeader />
+          <MobileHeader open={isMenuOpen} setOpen={setIsMenuOpen} />
         </div>
       </header>
       <nav>
-        <Sidebar />
+        <div className="hidden md:block">
+          <Sidebar />
+        </div>
+        <div className="block md:hidden">
+          <Menu openMenu={isMenuOpen} setOpenMenu={setIsMenuOpen} />
+        </div>
       </nav>
       <body>
-        <div>
-          <Body />
-        </div>
+        <Body />
       </body>
     </>
   );

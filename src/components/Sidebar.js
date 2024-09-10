@@ -34,7 +34,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="hidden md:block">
+    <div>
       {sideBar ? (
         <nav
           className={`bg-${

@@ -83,10 +83,18 @@ const Actions = ({
           deleteHandler={handleDeleteItem}
         />
       </Modal>
-      <Modal open={isEditBoardOpen} close={handleCloseEditModal}>
+      <Modal
+        open={isEditBoardOpen}
+        close={handleCloseEditModal}
+        styles="top-[5%]"
+      >
         <EditBoard close={handleCloseEditModal} />
       </Modal>
-      <Modal open={isEditTaskOpen} close={handleCloseEditTaskModal}>
+      <Modal
+        open={isEditTaskOpen}
+        close={handleCloseEditTaskModal}
+        styles="top-[5%]"
+      >
         <EditTask close={handleCloseEditTaskModal} details={index} />
       </Modal>
     </div>

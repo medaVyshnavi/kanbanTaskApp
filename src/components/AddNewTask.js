@@ -97,10 +97,10 @@ const AddNewTask = ({ close }) => {
             value={addTask.title}
             onChange={(e) => handleInputChange(e)}
             id="title"
-            className={`text-black ${
+            className={`${
               darkMode
-                ? "bg-darkGray border-dark"
-                : "bg-white border-linesLight "
+                ? "bg-darkGray border-mediumGray text-white"
+                : "bg-white border-linesLight text-black"
             } text-sm border border-1 p-2 rounded-md my-1 focus:border-purple focus:border-2 focus-visible:outline-none`}
           ></input>
           {errors.title && (
@@ -117,11 +117,11 @@ const AddNewTask = ({ close }) => {
             id="description"
             value={addTask.description}
             onChange={(e) => handleInputChange(e)}
-            className={`text-black ${
+            className={`${
               darkMode
-                ? "bg-darkGray border-dark"
-                : "bg-white border-linesLight "
-            } text-sm border border-1 border-linesLight p-2 rounded-md my-1 focus:border-purple focus:border-2 focus-visible:outline-none h-28`}
+                ? "bg-darkGray border-mediumGray text-white "
+                : "bg-white border-linesLight text-black "
+            } text-sm border border-1 p-2 rounded-md my-1 focus:border-purple focus:border-2 focus-visible:outline-none h-28`}
           ></textarea>
         </div>
         <div className="flex flex-col my-4">
@@ -136,11 +136,11 @@ const AddNewTask = ({ close }) => {
                   value={task.title}
                   onChange={(e) => handleTaskChange(e, index)}
                   placeholder="e.g. Make coffee"
-                  className={`text-black ${
+                  className={`${
                     darkMode
-                      ? "bg-darkGray border-dark"
-                      : "bg-white border-linesLight "
-                  } flex-1 text-sm border border-1 border-linesLight p-2 rounded-md my-1 focus:border-purple focus:border-2 focus-visible:outline-none`}
+                      ? "bg-darkGray border-mediumGray text-white "
+                      : "bg-white border-linesLight text-black "
+                  } flex-1 text-sm border border-1 p-2 rounded-md my-1 focus:border-purple focus:border-2 focus-visible:outline-none`}
                 />
                 <img
                   src={Cross}
@@ -170,11 +170,11 @@ const AddNewTask = ({ close }) => {
               value={addTask.status}
               onChange={(e) => handleInputChange(e)}
               id="status"
-              className={`text-black ${
+              className={`${
                 darkMode
-                  ? "bg-darkGray border-dark"
-                  : "bg-white border-linesLight "
-              } text-sm w-full border border-mediumGray rounded-md p-3`}
+                  ? "bg-darkGray border-mediumGray text-white "
+                  : "bg-white border-linesLight text-black "
+              } text-sm w-full border rounded-md p-3`}
             >
               <option value="" defaultChecked hidden>
                 Select status

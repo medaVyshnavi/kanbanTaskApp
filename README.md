@@ -39,6 +39,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 [comment]: <> (3. edit task status from view task page also)
 [comment]: <> (4. e2e testing)
 [comment]: <> (5. edit task on changing the column is not deleted from previous column)
+[comment]: <> (6. add new subtask error even when subtask is added)
+
 
 [comment]: <> (Extra TASKS)
 [comment]: <> (1. drag and drop tasks)

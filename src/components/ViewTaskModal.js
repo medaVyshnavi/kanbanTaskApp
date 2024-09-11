@@ -95,7 +95,9 @@ const ViewTaskModal = ({ mainTask, status, setIsOpen }) => {
           value={taskStatus}
           readOnly
           id="status"
-          className="text-sm w-full border border-mediumGray rounded-md p-3 appearance-none webkit"
+          className={`${
+            darkMode ? "bg-darkGray  " : "bg-white"
+          } text-sm w-full rounded-md p-3 appearance-none webkit`}
         >
           <option value="" defaultChecked hidden>
             {taskStatus}

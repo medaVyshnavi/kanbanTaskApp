@@ -10,16 +10,12 @@ const Board = () => {
   const val = data.boards.find((board) => board.id === selectedBoard);
   const newData = data.boards.indexOf(val);
   const selectedBoardDetails = data.boards[newData]?.columns;
-
-  const darkMode = useSelector((state) => state.app.darkMode);
   const sideBar = useSelector((state) => state.app.sideBar);
 
   return (
-    <div>
+    <>
       <div
-        className={`${
-          darkMode ? "bg-dark" : "bg-light"
-        } h-[88vh] flex justify-start pt-3 ${
+        className={` h-[88vh] flex justify-start pt-3 ${
           sideBar ? "pl-3 md:pl-80" : "pl-4 "
         } w-fit bg`}
       >
@@ -35,7 +31,7 @@ const Board = () => {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 

@@ -8,6 +8,8 @@ const AddNewColumn = ({ close }) => {
 
   const data = useSelector((state) => state.board.allBoards);
   const selectedBoard = useSelector((state) => state.board.selectedBoard);
+  const darkMode = useSelector((state) => state.app.darkMode);
+  
   const val = data.boards.find((board) => board.id === selectedBoard);
   const newData = data.boards.indexOf(val);
   const selectedBoardColumns = data.boards[newData]?.columns?.map((col) =>
@@ -43,7 +45,11 @@ const AddNewColumn = ({ close }) => {
           value={newColumn}
           onChange={(e) => setNewColumn(e.target.value)}
           placeholder="e.g. Todo"
-          className="text-sm border border-1 border-linesLight p-2 rounded-md my-1"
+          className={`${
+            darkMode
+              ? "bg-darkGray border-mediumGray text-white "
+              : "bg-white border-linesLight text-black "
+          } text-sm border border-1 p-2 rounded-md my-1 focus:border-purple focus:border-2 focus-visible:outline-none`}
         />
         <p className="text-red text-[10px] ml-1">
           {error?.name ? "Column name is required" : ""}

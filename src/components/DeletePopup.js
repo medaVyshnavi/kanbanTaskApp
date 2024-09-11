@@ -11,12 +11,14 @@ const DeletePopup = ({ title, description, onCancel, deleteHandler }) => {
       <div className="flex justify-between">
         <Button
           text="Delete"
-          className={"bg-red text-white px-[75px] hover:bg-redHover"}
+          className={
+            "bg-red text-white px-12 sm:px-[50px] md:px-[75px] hover:bg-redHover"
+          }
           click={deleteHandler}
         />
         <Button
           text="Cancel"
-          className={`bg-light text-purple px-[75px] ${
+          className={`bg-light text-purple px-12 sm:px-[50px] md:px-[75px] ${
             darkMode
               ? "hover:bg-white hover:text-purpleHover"
               : "hover:bg-purpleHover hover:text-black"

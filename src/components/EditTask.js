@@ -99,10 +99,10 @@ const EditTask = ({ close, details }) => {
             value={addTask.title}
             onChange={(e) => handleInputChange(e)}
             id="title"
-            className={`text-black ${
+            className={`${
               darkMode
-                ? "bg-darkGray border-dark"
-                : "bg-white border-linesLight "
+                ? "bg-darkGray border-mediumGray text-white "
+                : "bg-white border-linesLight text-black "
             } text-sm border border-1 p-2 rounded-md my-1 focus:border-purple focus:border-2 focus-visible:outline-none`}
           ></input>
           {errors.title && (
@@ -119,11 +119,11 @@ const EditTask = ({ close, details }) => {
             id="description"
             value={addTask.description}
             onChange={(e) => handleInputChange(e)}
-            className={`text-black ${
+            className={`${
               darkMode
-                ? "bg-darkGray border-dark"
-                : "bg-white border-linesLight "
-            } text-sm border border-1 border-linesLight p-2 rounded-md my-1 focus:border-purple focus:border-2 focus-visible:outline-none h-28`}
+                ? "bg-darkGray border-mediumGray text-white "
+                : "bg-white border-linesLight text-black "
+            } text-sm border border-1 p-2 rounded-md my-1 focus:border-purple focus:border-2 focus-visible:outline-none h-28`}
           ></textarea>
         </div>
         <div className="flex flex-col my-4">
@@ -138,10 +138,10 @@ const EditTask = ({ close, details }) => {
                   value={task.title}
                   onChange={(e) => handleTaskChange(e, task.id)}
                   placeholder="e.g. Make coffee"
-                  className={`text-black ${
+                  className={`${
                     darkMode
-                      ? "bg-darkGray border-dark"
-                      : "bg-white border-linesLight "
+                      ? "bg-darkGray border-mediumGray text-white"
+                      : "bg-white border-linesLight text-black"
                   } flex-1 text-sm border border-1 border-linesLight p-2 rounded-md my-1 focus:border-purple focus:border-2 focus-visible:outline-none`}
                 />
                 <img
@@ -172,10 +172,10 @@ const EditTask = ({ close, details }) => {
               value={newStatus}
               onChange={(e) => setNewStatus(e.target.value)}
               id="status"
-              className={`text-black ${
+              className={`${
                 darkMode
-                  ? "bg-darkGray border-dark"
-                  : "bg-white border-linesLight "
+                  ? "bg-darkGray border-mediumGray text-white "
+                  : "bg-white border-linesLight text-black "
               } text-sm w-full border border-mediumGray rounded-md px-3 py-2`}
             >
               <option value="" defaultChecked hidden>

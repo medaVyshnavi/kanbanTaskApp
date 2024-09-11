@@ -7,8 +7,12 @@ const Body = () => {
   const boardList = useSelector((state) => state.board.allBoards.boards);
   const boardIndex = useSelector((state) => state.board.selectedBoard);
   const board = boardList.filter((board) => board.id === boardIndex);
+  const darkMode = useSelector((state) => state.app.darkMode);
+
   return (
-    <div className="overflow-x-auto">{board[0].columns.length === 0 ? <EmptyBoard /> : <Board />}</div>
+    <div className={`${darkMode ? "bg-dark" : "bg-light"} overflow-x-auto`}>
+      {board[0].columns.length === 0 ? <EmptyBoard /> : <Board />}
+    </div>
   );
 };
 

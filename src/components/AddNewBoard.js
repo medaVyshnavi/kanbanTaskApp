@@ -7,6 +7,7 @@ const AddNewBoard = ({ close }) => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.board.allBoards.boards);
   const boardNameList = data.map((board) => board.name.toLowerCase());
+  const darkMode = useSelector((state) => state.app.darkMode);
 
   const [newBoard, setNewBoard] = useState("");
   const [error, setError] = useState({ name: false, duplicate: false });
@@ -26,7 +27,13 @@ const AddNewBoard = ({ close }) => {
 
   return (
     <div className="text-mediumGray tracking-wide">
-      <h1 className="text-xl text-black">Add New Board</h1>
+      <h1
+        className={`text-xl ${
+          darkMode ? "text-white" : "text-black"
+        } text-center`}
+      >
+        Add New Board
+      </h1>
       <div className="flex flex-col my-3">
         <label htmlFor="name" className="text-xs font-bold">
           Name
@@ -37,7 +44,11 @@ const AddNewBoard = ({ close }) => {
           value={newBoard}
           onChange={(e) => setNewBoard(e.target.value)}
           placeholder="e.g. Web Design"
-          className="text-sm border border-1 border-linesLight p-2 rounded-md my-1"
+          className={`${
+            darkMode
+              ? "bg-darkGray border-mediumGray text-white "
+              : "bg-white border-linesLight text-black "
+          } text-sm border border-1 p-2 rounded-md my-1 focus:border-purple focus:border-2 focus-visible:outline-none`}
         />
         <p className="text-red text-[10px] ml-1">
           {error?.name ? "Board name is required" : ""}

@@ -77,7 +77,7 @@ const MobileHeader = ({ open,setOpen }) => {
         </div>
       </div>
       {open ? <Menu /> : ""}
-      <Modal open={isOpen} close={handleCloseModal}>
+      <Modal open={isOpen} close={handleCloseModal} styles="top-[5%]">
         <AddNewTask close={handleCloseModal} />
       </Modal>
       {openActions && (

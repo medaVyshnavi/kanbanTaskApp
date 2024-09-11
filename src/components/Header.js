@@ -87,7 +87,7 @@ const Header = () => {
           />
         </div>
       </div>
-      <Modal open={isOpen} close={handleCloseModal}>
+      <Modal open={isOpen} close={handleCloseModal} styles="top-[5%]">
         <AddNewTask close={handleCloseModal} />
       </Modal>
       {openActions && (

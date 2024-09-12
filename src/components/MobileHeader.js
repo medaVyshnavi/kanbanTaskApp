@@ -4,7 +4,6 @@ import logo from "../assets/logo-mobile.svg";
 import arrow from "../assets/icon-chevron-down.svg"
 import plus from "../assets/icon-add-task-mobile.svg";
 import ellipse from "../assets/icon-vertical-ellipsis.svg";
-import Menu from './Menu';
 import Modal from "./Modal";
 import AddNewTask from "./AddNewTask";
 import Actions from "./Actions";
@@ -76,7 +75,6 @@ const MobileHeader = ({ open,setOpen }) => {
           />
         </div>
       </div>
-      {open ? <Menu /> : ""}
       <Modal open={isOpen} close={handleCloseModal} styles="top-[5%]">
         <AddNewTask close={handleCloseModal} />
       </Modal>

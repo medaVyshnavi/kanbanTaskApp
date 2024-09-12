@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Menu from "./components/Menu";
 import MobileHeader from "./components/MobileHeader";
 import Sidebar from "./components/Sidebar";
+import Navbar from "./components/Navbar";
 
 function App() {
 
@@ -22,8 +23,8 @@ function App() {
         <div className="hidden md:block">
           <Sidebar />
         </div>
-        <div className="block md:hidden">
-          <Menu openMenu={isMenuOpen} setOpenMenu={setIsMenuOpen} />
+        <div>
+          <Navbar openMenu={isMenuOpen} setOpenMenu={setIsMenuOpen} />
         </div>
       </nav>
       <body>

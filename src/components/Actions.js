@@ -64,7 +64,7 @@ const Actions = ({
       <div
         className={`${
           darkMode ? "bg-linesDark" : "bg-white"
-        } absolute top-[80px] right-[36px] rounded text-sm flex flex-col items-start justify-center`}
+        } absolute top-[60px] right-[12px] md:top-[80px] md:right-[36px] rounded text-sm flex flex-col items-start justify-center`}
       >
         <button
           className="text-mediumGray px-6 pb-3 pt-2"

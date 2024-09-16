@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateTask } from "../utils/store/boardSlice";
+import { deleteTask, updateTask } from "../utils/store/boardSlice";
 import Button from "./Button";
 import Cross from "../assets/icon-cross.svg";
 import { v4 as uuidv4 } from "uuid";
@@ -55,6 +55,7 @@ const EditTask = ({ close, details }) => {
           newStatus,
         ])
       );
+      dispatch(deleteTask([taskDetails, status]));
       close();
     }
   };

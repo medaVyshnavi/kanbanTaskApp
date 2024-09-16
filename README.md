@@ -18,35 +18,34 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/m
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-[comment]: <> (COMPLETED TASKS)
-[comment]: <> (1. displaying the tasks)
-[comment]: <> (2. deleting the tasks)
-[comment]: <> (3. adding the tasks)
-[comment]: <> (4. hiding the sidebar)
-[comment]: <> (5. adding subtasks)
-[comment]: <> (6. deleting the subtasks)
-[comment]: <> (7. dark theme and light theme)
-[comment]: <> (8. uuid generation)
-[comment]: <> (9. fix scroll bar in main page for column )
-[comment]: <> (10. error handling for add new task)
-[comment]: <> (11. hover states)
-[comment]: <> (12. error handling for duplicate board name and column name)
-[comment]: <> (13. editing the tasks and subtasks)
+### COMPLETED TASKS
+ 1. displaying the tasks
+ 2. deleting the tasks
+ 3. adding the tasks
+ 4. hiding the sidebar
+ 5. adding subtasks
+ 6. deleting the subtasks
+ 7. dark theme and light theme
+ 8. uuid generation
+ 9. fix scroll bar in main page for column 
+ 10. error handling for add new task
+ 11. hover states
+ 12. error handling for duplicate board name and column name
+ 13. editing the tasks and subtasks
+ 14. different screen size
+ 15. edit task on changing the column is not deleted from previous column 
 
-[comment]: <> (PENDING TASKS)
-[comment]: <> (1. different screen size)
-[comment]: <> (2. optimize the code)
-[comment]: <> (3. edit task status from view task page also)
-[comment]: <> (4. e2e testing)
-[comment]: <> (5. edit task on changing the column is not deleted from previous column)
-[comment]: <> (6. add new subtask error even when subtask is added)
+### PENDING TASKS
+ 1. optimize the code
+ 2. edit task status from view task page also
+ 4. add new subtask error even when subtask is added
 
-
-[comment]: <> (Extra TASKS)
-[comment]: <> (1. drag and drop tasks)
-[comment]: <> (2. test cases)
-[comment]: <> (3. Making it PWA)
-[comment]: <> (4. integrate with docker)
-[comment]: <> (5. deploy with aws)
-[comment]: <> (6. integrate the ci cd pipelines)
-[comment]: <> (7. integrate it with backend node js and mongodb using akshay saini s course)
+### Extra TASKS
+ 1. drag and drop tasks
+ 2. test cases
+ 3. Making it PWA
+ 4. integrate with docker
+ 5. deploy with aws
+ 6. integrate the ci cd pipelines
+ 7. integrate it with backend node js and mongodb using akshay saini s course
+ 8. e2e testing

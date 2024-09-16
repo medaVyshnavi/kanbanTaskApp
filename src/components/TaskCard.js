@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useState } from "react";
 import Modal from "./Modal";
 import ViewTaskModal from "./ViewTaskModal";
@@ -26,7 +26,11 @@ const TaskCard = ({ task, status }) => {
         } m-3 px-4 py-5 rounded-lg shadow-md w-72 cursor-pointer`}
         onClick={handleOpenTaskModal}
       >
-        <h3 className={`text-base ${darkMode ? "text-white" : "text-black"} hover:text-purple`}>
+        <h3
+          className={`text-base ${
+            darkMode ? "text-white" : "text-black"
+          } hover:text-purple`}
+        >
           {title}
         </h3>
         <p className="text-xs text-mediumGray pt-2">{`${completedTask} of ${subtasks?.length} subtasks`}</p>
@@ -36,6 +40,7 @@ const TaskCard = ({ task, status }) => {
           mainTask={task}
           status={status}
           setIsOpen={setIsOpen}
+          close={handleCloseTaskModal}
         />
       </Modal>
     </>

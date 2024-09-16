@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { isSubTaskCompleted } from "../utils/store/boardSlice";
+import { isSubTaskCompleted, updateTask,deleteTask } from "../utils/store/boardSlice";
 import ellipsis from "../assets/icon-vertical-ellipsis.svg";
 import Actions from "./Actions";
 
-const ViewTaskModal = ({ mainTask, status, setIsOpen }) => {
+const ViewTaskModal = ({ mainTask, status, setIsOpen,close }) => {
   const dispatch = useDispatch();
 
   const darkMode = useSelector((state) => state.app.darkMode);
@@ -28,6 +28,13 @@ const ViewTaskModal = ({ mainTask, status, setIsOpen }) => {
   const handleActions = () => {
     setOpenActions(!openActions);
   };
+
+  const handleStatusChange = (e) => {
+    setTaskStatus(e.target.value);
+    dispatch(updateTask([mainTask, e.target.value]));
+    dispatch(deleteTask([mainTask, taskStatus]));
+    close()
+  }
 
   return (
     <div className={`text-${darkMode ? "white" : "black"}`}>
@@ -93,18 +100,20 @@ const ViewTaskModal = ({ mainTask, status, setIsOpen }) => {
         Current Status
         <select
           value={taskStatus}
-          readOnly
+          onChange={(e)=>handleStatusChange(e)}
           id="status"
           className={`${
-            darkMode ? "bg-darkGray  " : "bg-white"
-          } text-sm w-full rounded-md p-3 appearance-none webkit`}
+            darkMode
+              ? "bg-darkGray border-mediumGray text-white "
+              : "bg-white border-linesLight text-black "
+          } text-sm w-full border border-mediumGray rounded-md px-3 py-2`}
         >
           <option value="" defaultChecked hidden>
             {taskStatus}
           </option>
-          {/* {selectedBoardColumns.map((col, index) => (
-            <option key={index}>{col}</option>
-          ))} */}
+          {selectedBoardColumns.map((col, index) => (
+            <option key={index} value={col}>{col}</option>
+          ))}
         </select>
       </label>
       {openActions && (

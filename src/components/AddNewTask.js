@@ -46,7 +46,7 @@ const AddNewTask = ({ close }) => {
     if (!addTask.title) {
       newErrors.title = "Title is required";
     }
-    if (!(addTask.subtasks && addTask.subtasks[0]?.title)) {
+    if (!(addSubTasks.length > 0 && addSubTasks[0]?.title)) {
       newErrors.subtasks = "Add atleast one sub task";
     }
 
@@ -128,7 +128,7 @@ const AddNewTask = ({ close }) => {
           <label className="text-xs font-bold " htmlFor="subTask">
             Subtasks
           </label>
-          {addSubTasks.map((task, index) => {
+          {addSubTasks?.map((task, index) => {
             return (
               <div className="flex justify-between items-center" key={index}>
                 <input

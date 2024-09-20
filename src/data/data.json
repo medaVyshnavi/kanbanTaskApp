@@ -1,80 +1,80 @@
 {
   "boards": [
     {
-      "id": 5,
+      "id": "080c3ea1-b401-43bf-b41a-4525ddb57083",
       "name": "Platform Launch",
       "columns": [
         {
-          "id": 0,
+          "id": "fcb2426a-dcbd-475d-b597-baf5193402dd",
           "name": "Todo",
           "tasks": [
             {
-              "id": 0,
+              "id": "8244d0f6-49f3-4353-a2ca-29954c66a3aa",
               "title": "Build UI for onboarding flow",
               "description": "",
               "status": "Todo",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "644366f8-8725-4787-9cab-d6cd65fc2410",
                   "title": "Sign up page",
                   "isCompleted": true
                 },
                 {
-                  "id": 1,
+                  "id": "f0719f75-d5d5-4532-badd-94ca796bb726",
                   "title": "Sign in page",
                   "isCompleted": false
                 },
                 {
-                  "id": 2,
+                  "id": "cafc645d-9210-4463-a6bc-9c18cd2fe8bb",
                   "title": "Welcome page",
                   "isCompleted": false
                 }
               ]
             },
             {
-              "id": 1,
+              "id": "f6659407-a52d-427e-8fcf-d9dfbf618a4a",
               "title": "Build UI for search",
               "description": "",
               "status": "Todo",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "2e5273f0-97f3-4dbb-9c3d-87f121932b46",
                   "title": "Search page",
                   "isCompleted": false
                 }
               ]
             },
             {
-              "id": 2,
+              "id": "5398b092-ee0a-4d42-bbe4-86b0764784d2",
               "title": "Build settings UI",
               "description": "",
               "status": "Todo",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "c0c6cb38-fd1b-4d50-be76-7e23765033fe",
                   "title": "Account page",
                   "isCompleted": false
                 },
                 {
-                  "id": 1,
+                  "id": "72512530-88fd-4c4d-86ab-9594e56cd5fb",
                   "title": "Billing page",
                   "isCompleted": false
                 }
               ]
             },
             {
-              "id": 3,
+              "id": "f164fe20-d27e-41aa-be3f-3522586f7042",
               "title": "QA and test all major user journeys",
               "description": "Once we feel version one is ready, we need to rigorously test it both internally and externally to identify any major gaps.",
               "status": "Todo",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "799be9e3-0197-4733-802a-0190c80b0123",
                   "title": "Internal testing",
                   "isCompleted": false
                 },
                 {
-                  "id": 1,
+                  "id": "2a436458-952b-4f47-b1a3-039cd6847b63",
                   "title": "External testing",
                   "isCompleted": false
                 }
@@ -83,132 +83,132 @@
           ]
         },
         {
-          "id": 1,
+          "id": "dcca7c09-c769-4d2b-a0d0-bf4f25605ba7",
           "name": "Doing",
           "tasks": [
             {
-              "id": 0,
+              "id": "46c277a5-b310-4d7b-a5a9-8d95f52f27c3",
               "title": "Design settings and search pages",
               "description": "",
               "status": "Doing",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "ac65de0d-7d6d-48bd-8a61-a9f38262beeb",
                   "title": "Settings - Account page",
                   "isCompleted": true
                 },
                 {
-                  "id": 1,
+                  "id": "ae24f079-8dbb-4f73-ade5-ca7f212ed8a9",
                   "title": "Settings - Billing page",
                   "isCompleted": true
                 },
                 {
-                  "id": 2,
+                  "id": "61ab4e70-6b9f-41c1-bfa4-503ca6e4abb3",
                   "title": "Search page",
                   "isCompleted": false
                 }
               ]
             },
             {
-              "id": 1,
+              "id": "a60275e9-ec3c-40e2-b4c0-e806651bb84c",
               "title": "Add account management endpoints",
               "description": "",
               "status": "Doing",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "5dac86dd-3881-4481-ab32-f3eefed7a8d1",
                   "title": "Upgrade plan",
                   "isCompleted": true
                 },
                 {
-                  "id": 1,
+                  "id": "69965369-1f05-4669-9036-ac02d1558b6d",
                   "title": "Cancel plan",
                   "isCompleted": true
                 },
                 {
-                  "id": 2,
+                  "id": "1d6485ce-542e-49c3-8763-27766909a03a",
                   "title": "Update payment method",
                   "isCompleted": false
                 }
               ]
             },
             {
-              "id": 2,
+              "id": "0d20f984-34f2-4cdd-89bf-2b94766234e0",
               "title": "Design onboarding flow",
               "description": "",
               "status": "Doing",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "a975c656-fc4b-4200-941f-636782e0e005",
                   "title": "Sign up page",
                   "isCompleted": true
                 },
                 {
-                  "id": 1,
+                  "id": "6b30c9ca-6ec1-4063-b04c-c4ff0095a2ca",
                   "title": "Sign in page",
                   "isCompleted": false
                 },
                 {
-                  "id": 2,
+                  "id": "55b0c30c-0a6c-42dd-8847-548d4c7d539d",
                   "title": "Welcome page",
                   "isCompleted": false
                 }
               ]
             },
             {
-              "id": 3,
+              "id": "fb4e4131-0a23-456a-b08d-0f0f1e3af3e2",
               "title": "Add search enpoints",
               "description": "",
               "status": "Doing",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "36970a92-ee7e-4f45-91f1-f64984061ccc",
                   "title": "Add search endpoint",
                   "isCompleted": true
                 },
                 {
-                  "id": 1,
+                  "id": "4b2a01fc-a9a4-4ba0-aa26-43fb6a056af0",
                   "title": "Define search filters",
                   "isCompleted": false
                 }
               ]
             },
             {
-              "id": 4,
+              "id": "89352455-cd6e-4582-9fef-5c1c75b7186a",
               "title": "Add authentication endpoints",
               "description": "",
               "status": "Doing",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "9391a451-39a1-4d60-96cd-ee8f080bb4ed",
                   "title": "Define user model",
                   "isCompleted": true
                 },
                 {
-                  "id": 1,
+                  "id": "949598ee-0713-42b0-92f1-146482bc5a5a",
                   "title": "Add auth endpoints",
                   "isCompleted": false
                 }
               ]
             },
             {
-              "id": 5,
+              "id": "5b5d9d4f-1754-4669-a90a-8196591db0ca",
               "title": "Research pricing points of various competitors and trial different business models",
               "description": "We know what we're planning to build for version one. Now we need to finalise the first pricing model we'll use. Keep iterating the subtasks until we have a coherent proposition.",
               "status": "Doing",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "083b989f-29d3-41a4-8034-1f5ffa3fc981",
                   "title": "Research competitor pricing and business models",
                   "isCompleted": true
                 },
                 {
-                  "id": 1,
+                  "id": "7da3226b-ea17-4ab2-a19c-887952644351",
                   "title": "Outline a business model that works for our solution",
                   "isCompleted": false
                 },
                 {
-                  "id": 2,
+                  "id": "2f9f79ec-bde4-4ba0-a2bd-ca41ce1132f9",
                   "title": "Talk to potential customers about our proposed solution and ask for fair price expectancy",
                   "isCompleted": false
                 }
@@ -217,120 +217,120 @@
           ]
         },
         {
-          "id": 2,
+          "id": "aae5355c-0b12-4acc-a365-ee14a6d56136",
           "name": "Done",
           "tasks": [
             {
-              "id": 0,
+              "id": "168d10d6-3552-4aa2-acc7-9d5e8a943cf3",
               "title": "Conduct 5 wireframe tests",
               "description": "Ensure the layout continues to make sense and we have strong buy-in from potential users.",
               "status": "Done",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "13c1103b-03f9-4ea2-ab61-99452b86bca6",
                   "title": "Complete 5 wireframe prototype tests",
                   "isCompleted": true
                 }
               ]
             },
             {
-              "id": 1,
+              "id": "83914735-7b7f-43ec-8eb7-4972fff49c70",
               "title": "Create wireframe prototype",
               "description": "Create a greyscale clickable wireframe prototype to test our asssumptions so far.",
               "status": "Done",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "bed3f611-e0ee-4162-87b6-ccbc071e45a2",
                   "title": "Create clickable wireframe prototype in Balsamiq",
                   "isCompleted": true
                 }
               ]
             },
             {
-              "id": 2,
+              "id": "decf4f6a-8458-4507-bde2-037933e64fd2",
               "title": "Review results of usability tests and iterate",
               "description": "Keep iterating through the subtasks until we're clear on the core concepts for the app.",
               "status": "Done",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "27bfdd4f-323c-4cf8-ba8a-f50d0a062854",
                   "title": "Meet to review notes from previous tests and plan changes",
                   "isCompleted": true
                 },
                 {
-                  "id": 1,
+                  "id": "4d86236c-c0f3-4ca1-bea4-4e48101c4007",
                   "title": "Make changes to paper prototypes",
                   "isCompleted": true
                 },
                 {
-                  "id": 2,
+                  "id": "2578c8c8-fb0e-4ac0-b61e-8d954699e785",
                   "title": "Conduct 5 usability tests",
                   "isCompleted": true
                 }
               ]
             },
             {
-              "id": 3,
+              "id": "406d4ed3-3127-4206-a211-54de463b7892",
               "title": "Create paper prototypes and conduct 10 usability tests with potential customers",
               "description": "",
               "status": "Done",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "5eab9e3c-11d0-461d-9374-c2f3f1f48bfd",
                   "title": "Create paper prototypes for version one",
                   "isCompleted": true
                 },
                 {
-                  "id": 1,
+                  "id": "ec7159f8-b0b2-4c39-91a7-770141485422",
                   "title": "Complete 10 usability tests",
                   "isCompleted": true
                 }
               ]
             },
             {
-              "id": 4,
+              "id": "459c4567-87c1-49ac-bb4f-61f0dceb8af6",
               "title": "Market discovery",
               "description": "We need to define and refine our core product. Interviews will help us learn common pain points and help us define the strongest MVP.",
               "status": "Done",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "e72cf931-fe01-400a-93a7-fdab8c212f80",
                   "title": "Interview 10 prospective customers",
                   "isCompleted": true
                 }
               ]
             },
             {
-              "id": 5,
+              "id": "5bfbc8bc-0520-45c9-b8cb-50ce3d95a78f",
               "title": "Competitor analysis",
               "description": "",
               "status": "Done",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "0b4d773a-38f3-4bdb-b4b4-25f2eb79fb33",
                   "title": "Find direct and indirect competitors",
                   "isCompleted": true
                 },
                 {
-                  "id": 1,
+                  "id": "ef3ecbe0-aa2d-4034-b96e-254f6825a30c",
                   "title": "SWOT analysis for each competitor",
                   "isCompleted": true
                 }
               ]
             },
             {
-              "id": 6,
+              "id": "f60e9ff2-86cd-420c-b133-8e0fd5b89ce3",
               "title": "Research the market",
               "description": "We need to get a solid overview of the market to ensure we have up-to-date estimates of market size and demand.",
               "status": "Done",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "4e94b977-dcf8-48e6-9dd5-1cbf46fcb9e9",
                   "title": "Write up research analysis",
                   "isCompleted": true
                 },
                 {
-                  "id": 1,
+                  "id": "88e4dfbc-c7ca-41cd-ac6b-cac92b18d82a",
                   "title": "Calculate TAM",
                   "isCompleted": true
                 }
@@ -341,11 +341,11 @@
       ]
     },
     {
-      "id": 6,
+      "id": "4d278107-b504-4261-b225-392de60d3055",
       "name": "Marketing Plan",
       "columns": [
         {
-          "id": 0,
+          "id": "c42d43e1-30ce-48fb-b2ed-28d369c30e88",
           "name": "Todo",
           "tasks": [
             {
@@ -354,32 +354,32 @@
               "status": "Todo",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "f3d329de-50b3-48a0-9f24-7bf410f3f2c8",
                   "title": "Find hunter",
                   "isCompleted": false
                 },
                 {
-                  "id": 1,
+                  "id": "446f145b-c5b9-4e7b-9281-295dde40d892",
                   "title": "Gather assets",
                   "isCompleted": false
                 },
                 {
-                  "id": 2,
+                  "id": "c039946f-2dff-440d-b3c9-0e898d6398ae",
                   "title": "Draft product page",
                   "isCompleted": false
                 },
                 {
-                  "id": 3,
+                  "id": "25cfd38a-0669-4524-bca3-229ec19abc4d",
                   "title": "Notify customers",
                   "isCompleted": false
                 },
                 {
-                  "id": 4,
+                  "id": "7ba210b9-0553-410c-bb2b-d60d84733097",
                   "title": "Notify network",
                   "isCompleted": false
                 },
                 {
-                  "id": 5,
+                  "id": "34aa78c9-fab6-4259-851c-6cc0b0409234",
                   "title": "Launch!",
                   "isCompleted": false
                 }
@@ -391,17 +391,17 @@
               "status": "",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "bc05956f-35b8-4379-b014-568d6c738fa9",
                   "title": "Draft out HN post",
                   "isCompleted": false
                 },
                 {
-                  "id": 1,
+                  "id": "114a09d9-b05d-43ea-904c-17374fb18f23",
                   "title": "Get feedback and refine",
                   "isCompleted": false
                 },
                 {
-                  "id": 2,
+                  "id": "6ad82c73-f220-4c1a-af9f-42ac4b44ac29",
                   "title": "Publish post",
                   "isCompleted": false
                 }
@@ -413,22 +413,22 @@
               "status": "",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "a53c711e-2edc-424c-ace9-75b395d0ebc8",
                   "title": "Write article",
                   "isCompleted": false
                 },
                 {
-                  "id": 1,
+                  "id": "99d2a832-146e-45b1-bcf2-a2854b7a357d",
                   "title": "Publish on LinkedIn",
                   "isCompleted": false
                 },
                 {
-                  "id": 2,
+                  "id": "213ac357-b53c-4835-b697-29da02f0ac04",
                   "title": "Publish on Inndie Hackers",
                   "isCompleted": false
                 },
                 {
-                  "id": 3,
+                  "id": "aeb29ebb-36ea-4b93-8648-8d3f4c0f02f2",
                   "title": "Publish on Medium",
                   "isCompleted": false
                 }
@@ -437,61 +437,61 @@
           ]
         },
         {
-          "id": 1,
+          "id": "ba6bdf04-a7e0-49eb-80c8-9952bba2b64e",
           "name": "Doing",
           "tasks": []
         },
         {
-          "id": 2,
+          "id": "32f2f051-60ea-43f0-bf77-3c78f344f000",
           "name": "Done",
           "tasks": []
         }
       ]
     },
     {
-      "id": 7,
+      "id": "2724f0f4-3762-4985-9ac5-a644fa0afa95",
       "name": "Roadmap",
       "columns": [
         {
-          "id": 0,
+          "id": "f04caf4a-b75e-4c54-87de-2cbe6ab0b981",
           "name": "Now",
           "tasks": [
             {
-              "id": 0,
+              "id": "4833b533-4da6-4e9a-b41f-1ea51de87916",
               "title": "Launch version one",
               "description": "",
               "status": "",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "da0e66c3-3ce6-4269-b9fa-1a25b6e467a7",
                   "title": "Launch privately to our waitlist",
                   "isCompleted": false
                 },
                 {
-                  "id": 1,
+                  "id": "95f6d266-ad77-44c4-8581-957f0396fb10",
                   "title": "Launch publicly on PH, HN, etc.",
                   "isCompleted": false
                 }
               ]
             },
             {
-              "id": 1,
+              "id": "adce6f98-16d4-46af-b83f-7dffe18888cb",
               "title": "Review early feedback and plan next steps for roadmap",
               "description": "Beyond the initial launch, we're keeping the initial roadmap completely empty. This meeting will help us plan out our next steps based on actual customer feedback.",
               "status": "",
               "subtasks": [
                 {
-                  "id": 0,
+                  "id": "9dad2cac-7924-48f7-9327-5e8d0a4f933b",
                   "title": "Interview 10 customers",
                   "isCompleted": false
                 },
                 {
-                  "id": 1,
+                  "id": "bbf33e59-906b-4664-8bfd-b3ba5d0ab626",
                   "title": "Review common customer pain points and suggestions",
                   "isCompleted": false
                 },
                 {
-                  "id": 2,
+                  "id": "ee823955-35b3-41cd-b9b9-4ac096975e2f",
                   "title": "Outline next steps for our roadmap",
                   "isCompleted": false
                 }
@@ -500,12 +500,12 @@
           ]
         },
         {
-          "id": 1,
+          "id": "dfe359e7-4873-40e0-92ff-6fafec4ed756",
           "name": "Next",
           "tasks": []
         },
         {
-          "id": 2,
+          "id": "cf265dee-6d41-47a5-b915-8955d7508b96",
           "name": "Later",
           "tasks": []
         }

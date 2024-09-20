@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { isSubTaskCompleted, updateTask,deleteTask } from "../utils/store/boardSlice";
+import {
+  deleteTask,
+  isSubTaskCompleted,
+  updateTaskStatus,
+} from "../utils/store/boardSlice";
 import ellipsis from "../assets/icon-vertical-ellipsis.svg";
 import Actions from "./Actions";
 
@@ -31,8 +35,9 @@ const ViewTaskModal = ({ mainTask, status, setIsOpen,close }) => {
 
   const handleStatusChange = (e) => {
     setTaskStatus(e.target.value);
-    dispatch(updateTask([mainTask, e.target.value]));
-    dispatch(deleteTask([mainTask, taskStatus]));
+    console.log(mainTask, status, e.target.value);
+    dispatch(deleteTask([mainTask, status]));
+    dispatch(updateTaskStatus([mainTask, e.target.value]));
     close()
   }
 

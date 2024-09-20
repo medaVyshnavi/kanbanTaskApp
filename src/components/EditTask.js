@@ -11,6 +11,7 @@ const EditTask = ({ close, details }) => {
     id: taskDetails?.id,
     title: taskDetails?.title,
     description: taskDetails?.description,
+    subtasks : taskDetails?.subtasks
   };
 
   const dispatch = useDispatch();
@@ -45,17 +46,15 @@ const EditTask = ({ close, details }) => {
     if (!(addTask.subtasks && addTask.subtasks[0]?.title)) {
       newErrors.subtasks = "Add atleast one sub task";
     }
-
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
-      dispatch(
-        updateTask([
-          { ...addTask, subtasks: addSubTasks, status: newStatus },
-          newStatus,
-        ])
-      );
-      dispatch(deleteTask([taskDetails, status]));
+      // dispatch(
+      //   updateTask([
+      //     { ...addTask, subtasks: addSubTasks, status: newStatus,id:taskDetails.id },
+      //     newStatus,
+      //   ])
+      // );
       close();
     }
   };
@@ -69,7 +68,10 @@ const EditTask = ({ close, details }) => {
 
   const handleRemoveTask = (id) => {
     const list = [...addSubTasks];
-    list.splice(id, 1);
+    const index = list.findIndex((task) => task.id == id);
+    if (index !== -1) {
+      list.splice(index, 1);
+    }
     setAddSubTasks(list);
   };
 
@@ -87,7 +89,7 @@ const EditTask = ({ close, details }) => {
       } tracking-wide overflow-y-scroll max-h-[560px]`}
     >
       <h1 className={`text-xl ${darkMode ? "text-white" : "text-black"}`}>
-        Edit New Task
+        Edit Task
       </h1>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col my-4">

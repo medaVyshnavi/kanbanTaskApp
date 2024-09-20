@@ -33,12 +33,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
  12. error handling for duplicate board name and column name
  13. editing the tasks and subtasks
  14. different screen size
- 15. edit task on changing the column is not deleted from previous column 
+ 15. edit task status from view task page also
+ 16. add new subtask error even when subtask is added
 
 ### PENDING TASKS
  1. optimize the code
- 2. edit task status from view task page also
- 4. add new subtask error even when subtask is added
+
+ 3. edit is not working
+ 5. edit task on changing the column is not deleted from previous column
+
 
 ### Extra TASKS
  1. drag and drop tasks
@@ -49,3 +52,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
  6. integrate the ci cd pipelines
  7. integrate it with backend node js and mongodb using akshay saini s course
  8. e2e testing
+ 9. add git pre commit hooks

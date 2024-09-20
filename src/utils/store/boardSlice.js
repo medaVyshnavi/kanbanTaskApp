@@ -76,9 +76,12 @@ const boardSlice = createSlice({
       const index = state.allBoards.boards.findIndex(
         (board) => board.id === state.selectedBoard
       );
-      const val = state.allBoards.boards[index].columns;
-      const data = val.find((column) => column.name == action.payload[1]);
-      data.tasks.splice(action.payload[0].id, 1);
+      const val = state.allBoards.boards[index].columns.find(
+        (column) => column.name == action.payload[1]);
+      const taskIndex = val.tasks.findIndex(
+        (task) => task.id == action.payload[0].id
+      );
+      val.tasks.splice(taskIndex, 1);
     },
     updateBoard: (state, action) => {
       const index = state.allBoards.boards.findIndex(
@@ -94,15 +97,19 @@ const boardSlice = createSlice({
         (column) => column.name === action.payload[1]
       );
       const taskIndex = val.tasks.findIndex(
-        (task) => task.id == action.payload[0]["id"]
+        (task) => task.id == action.payload[0].id
       );
-      console.log(taskIndex);
-      if (taskIndex !== -1) {
-        val.tasks[taskIndex] = action.payload[0];
-      } else {
-        val.tasks.push(action.payload[0]);
-      }
+      
     },
+    updateTaskStatus: (state, action) => {
+      const index = state.allBoards.boards.findIndex(
+        (board) => board.id === state.selectedBoard
+      );
+      const val = state.allBoards.boards[index].columns.find(
+        (column) => column.name === action.payload[1]
+      );
+      val.tasks.push(action.payload[0]);
+    }
   },
 });
 
@@ -117,4 +124,5 @@ export const {
   deleteTask,
   updateBoard,
   updateTask,
+  updateTaskStatus,
 } = boardSlice.actions;

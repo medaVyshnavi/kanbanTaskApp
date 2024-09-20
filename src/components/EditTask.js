@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTask, updateTask } from "../utils/store/boardSlice";
+import { deleteTask, updateTask, updateTaskStatus } from "../utils/store/boardSlice";
 import Button from "./Button";
 import Cross from "../assets/icon-cross.svg";
 import { v4 as uuidv4 } from "uuid";
 
-const EditTask = ({ close, details }) => {
+const EditTask = ({ close, details, closeViewModal }) => {
   const [taskDetails, status] = details;
   const newTaskInitialState = {
     id: taskDetails?.id,
     title: taskDetails?.title,
     description: taskDetails?.description,
-    subtasks : taskDetails?.subtasks
+    subtasks: taskDetails?.subtasks,
   };
 
   const dispatch = useDispatch();
@@ -49,13 +49,37 @@ const EditTask = ({ close, details }) => {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
-      // dispatch(
-      //   updateTask([
-      //     { ...addTask, subtasks: addSubTasks, status: newStatus,id:taskDetails.id },
-      //     newStatus,
-      //   ])
-      // );
+      setAddTask([
+        {
+          ...addTask,
+          subtasks: addSubTasks,
+        },
+      ]);
+
+      if (newStatus === status) {
+        dispatch(
+          updateTask([
+            {
+              ...addTask,
+              subtasks: addSubTasks,
+            },
+            newStatus,
+          ])
+        );
+      } else {
+        dispatch(deleteTask([taskDetails, status]));
+        dispatch(
+          updateTaskStatus([
+            {
+              ...addTask,
+              subtasks: addSubTasks,
+            },
+            newStatus,
+          ])
+        );
+      }
       close();
+      closeViewModal();
     }
   };
 

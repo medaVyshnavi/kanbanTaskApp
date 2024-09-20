@@ -1,4 +1,4 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 
 import data from "../../data/data.json";
@@ -99,6 +99,7 @@ const boardSlice = createSlice({
       const taskIndex = val.tasks.findIndex(
         (task) => task.id == action.payload[0].id
       );
+      val.tasks.splice(taskIndex,1,action.payload[0])
       
     },
     updateTaskStatus: (state, action) => {

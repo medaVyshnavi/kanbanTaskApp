@@ -35,7 +35,6 @@ const ViewTaskModal = ({ mainTask, status, setIsOpen,close }) => {
 
   const handleStatusChange = (e) => {
     setTaskStatus(e.target.value);
-    console.log(mainTask, status, e.target.value);
     dispatch(deleteTask([mainTask, status]));
     dispatch(updateTaskStatus([mainTask, e.target.value]));
     close()
@@ -131,6 +130,7 @@ const ViewTaskModal = ({ mainTask, status, setIsOpen,close }) => {
           deleteItem={isDeleteTask}
           setDeleteItem={setIsDeleteTask}
           setIsOpen={setIsOpen}
+          closeViewModal = {close}
         />
       )}
     </div>

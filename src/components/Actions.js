@@ -16,6 +16,7 @@ const Actions = ({
   deleteItem,
   setDeleteItem,
   setIsOpen,
+  closeViewModal,
 }) => {
   const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.app.darkMode);
@@ -95,7 +96,11 @@ const Actions = ({
         close={handleCloseEditTaskModal}
         styles="top-[5%]"
       >
-        <EditTask close={handleCloseEditTaskModal} details={index} />
+        <EditTask
+          close={handleCloseEditTaskModal}
+          details={index}
+          closeViewModal={closeViewModal}
+        />
       </Modal>
     </div>
   );

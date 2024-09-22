@@ -1,7 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Body from "./components/Body";
 import Header from "./components/Header";
-import Menu from "./components/Menu";
 import MobileHeader from "./components/MobileHeader";
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";

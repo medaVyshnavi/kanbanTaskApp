@@ -53,7 +53,7 @@ const Menu = () => {
               <div
                 key={index}
                 className={`${
-                  selectedBoard == item.id
+                  selectedBoard === item.id
                     ? "bg-purple  text-white"
                     : "text-mediumGray hover:bg-lightGray hover:text-purple"
                 } mr-6 rounded-r-3xl`}
@@ -64,7 +64,7 @@ const Menu = () => {
                   className="flex items-center h-12 pl-[34px]"
                 >
                   <img
-                    src={selectedBoard == item.id ? iconBoardWhite : iconBoard}
+                    src={selectedBoard === item.id ? iconBoardWhite : iconBoard}
                     alt="board-icon"
                     className="w-4 h-4"
                   />

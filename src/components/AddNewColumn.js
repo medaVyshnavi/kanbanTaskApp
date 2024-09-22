@@ -20,7 +20,7 @@ const AddNewColumn = ({ close }) => {
   const [error, setError] = useState({ name: false, duplicate: false });
 
   const newBoardHandler = () => {
-    if (newColumn.length == 0) {
+    if (newColumn.length === 0) {
       setError((prev) => ({ ...prev, name: true }));
       return;
     }

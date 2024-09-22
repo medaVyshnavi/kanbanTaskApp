@@ -13,7 +13,7 @@ const AddNewBoard = ({ close }) => {
   const [error, setError] = useState({ name: false, duplicate: false });
 
   const newBoardHandler = () => {
-    if (newBoard.length == 0) {
+    if (newBoard.length === 0) {
       setError((prev) => ({ ...prev, name: true }));
       return;
     }

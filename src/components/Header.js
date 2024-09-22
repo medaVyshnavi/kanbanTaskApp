@@ -19,11 +19,11 @@ const Header = () => {
   const boardIndex = useSelector((state) => state.board.selectedBoard);
 
   const boardName = boardList
-    ?.filter((board) => board.id == boardIndex)
+    ?.filter((board) => board.id === boardIndex)
     ?.map((board) => board.name);
 
   const selecteBoardColumn = boardList?.filter(
-    (board) => board.id == boardIndex
+    (board) => board.id === boardIndex
   );
 
   const isDisabled =

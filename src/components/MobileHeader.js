@@ -18,7 +18,7 @@ const MobileHeader = ({ open,setOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
   
   const boardName = boardList
-    ?.filter((board) => board.id == boardIndex)
+    ?.filter((board) => board.id === boardIndex)
     ?.map((board) => board.name);
   
   const handleOpenMenu = () => {

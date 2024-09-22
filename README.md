@@ -42,7 +42,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
  1. optimize the code
 
 ### Extra TASKS
- 1. add git pre commit hooks 
+ 1. add git pre commit hooks / eslint / prettier
  2. GitHub actions/ Github workflows
  3. Making it PWA
  4. test cases

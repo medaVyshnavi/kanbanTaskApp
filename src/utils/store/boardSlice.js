@@ -20,8 +20,8 @@ const boardSlice = createSlice({
       const val = state.allBoards.boards[index].columns;
       let data = val
         .find((v) => v.name === action.payload[1])
-        .tasks.find((task) => task.id == action.payload[2].id)
-        .subtasks.find((item) => item.id == action.payload[0].id);
+        .tasks.find((task) => task.id === action.payload[2].id)
+        .subtasks.find((item) => item.id === action.payload[0].id);
 
       data.isCompleted = !data.isCompleted;
     },
@@ -77,16 +77,13 @@ const boardSlice = createSlice({
         (board) => board.id === state.selectedBoard
       );
       const val = state.allBoards.boards[index].columns.find(
-        (column) => column.name == action.payload[1]);
+        (column) => column.name === action.payload[1]);
       const taskIndex = val.tasks.findIndex(
-        (task) => task.id == action.payload[0].id
+        (task) => task.id === action.payload[0].id
       );
       val.tasks.splice(taskIndex, 1);
     },
     updateBoard: (state, action) => {
-      const index = state.allBoards.boards.findIndex(
-        (board) => board.id === state.selectedBoard
-      );
       state.allBoards.boards.splice(0, 1, action.payload);
     },
     updateTask: (state, action) => {
@@ -97,7 +94,7 @@ const boardSlice = createSlice({
         (column) => column.name === action.payload[1]
       );
       const taskIndex = val.tasks.findIndex(
-        (task) => task.id == action.payload[0].id
+        (task) => task.id === action.payload[0].id
       );
       val.tasks.splice(taskIndex,1,action.payload[0])
       

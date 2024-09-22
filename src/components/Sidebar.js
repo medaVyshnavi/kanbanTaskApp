@@ -57,7 +57,7 @@ const Sidebar = () => {
                 <div
                   key={index}
                   className={`${
-                    selectedBoard == item.id
+                    selectedBoard === item.id
                       ? "bg-purple  text-white"
                       : "text-mediumGray hover:bg-lightGray hover:text-purple"
                   } mr-6 rounded-r-3xl`}
@@ -69,7 +69,7 @@ const Sidebar = () => {
                   >
                     <img
                       src={
-                        selectedBoard == item.id ? iconBoardWhite : iconBoard
+                        selectedBoard === item.id ? iconBoardWhite : iconBoard
                       }
                       alt="board-icon"
                       className="w-4 h-4"

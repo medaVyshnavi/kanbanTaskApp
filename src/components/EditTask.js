@@ -92,7 +92,7 @@ const EditTask = ({ close, details, closeViewModal }) => {
 
   const handleRemoveTask = (id) => {
     const list = [...addSubTasks];
-    const index = list.findIndex((task) => task.id == id);
+    const index = list.findIndex((task) => task.id === id);
     if (index !== -1) {
       list.splice(index, 1);
     }
@@ -101,7 +101,7 @@ const EditTask = ({ close, details, closeViewModal }) => {
 
   const handleTaskChange = (e, id) => {
     let updateTask = addSubTasks.map((task) =>
-      task.id == id ? { ...task, title: e.target.value } : task
+      task.id === id ? { ...task, title: e.target.value } : task
     );
     setAddSubTasks((prev) => updateTask);
   };

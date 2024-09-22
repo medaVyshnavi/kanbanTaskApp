@@ -35,7 +35,7 @@ const Actions = ({
 
   const handleDeleteItem = () => {
     if (
-      type == "Board"
+      type === "Board"
         ? dispatch(deleteBoard(index))
         : dispatch(deleteTask(index))
     )
@@ -69,7 +69,7 @@ const Actions = ({
       >
         <button
           className="text-mediumGray px-6 pb-3 pt-2"
-          onClick={type == "Board" ? handleEditBoard : handleEditTask}
+          onClick={type === "Board" ? handleEditBoard : handleEditTask}
         >{`Edit ${type}`}</button>
         <button
           className="text-red px-6 pb-3"

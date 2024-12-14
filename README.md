@@ -37,19 +37,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
  16. add new subtask error even when subtask is added
  17. edit is not working
  18. edit task on changing the column is not deleted from previous column
-
-### PENDING TASKS
- 1. optimize the code
-
-### Extra TASKS
- 1. add git pre commit hooks / eslint / prettier
- 2. GitHub actions/ Github workflows
- 3. Making it PWA
- 4. test cases
- 5. drag and drop tasks
- 6. integrate with docker
- 7. integrate the ci cd pipelines
- 8. e2e testing
- 9. OAuth
- 10. deploy with aws
- 11. integrate it with backend node js and mongodb using akshay saini s course
